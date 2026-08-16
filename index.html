@@ -3,9 +3,9 @@
 
 <head>
 
-    <!-- =========================
-         BASIC WEBSITE INFO
-    ========================== -->
+    <!-- =====================================================
+         BASIC WEBSITE INFORMATION
+    ====================================================== -->
 
     <meta charset="UTF-8">
 
@@ -18,18 +18,18 @@
 
     <meta
         name="description"
-        content="6b6t Vault — your source for 6b6t kits. Browse available kits and check current stock."
+        content="6b6t Vault — your source for 6b6t kits. Browse available kits, check stock, and find ways to join 6b6t."
     >
 
     <meta
         name="theme-color"
-        content="#8b35ff"
+        content="#a855f7"
     >
 
 
-    <!-- =========================
+    <!-- =====================================================
          DISCORD / OPEN GRAPH
-    ========================== -->
+    ====================================================== -->
 
     <meta
         property="og:type"
@@ -48,7 +48,7 @@
 
     <meta
         property="og:description"
-        content="Your source for 6b6t kits. Browse available kits and check current stock."
+        content="Your source for 6b6t kits. Browse available kits, check stock, and find ways to join 6b6t."
     >
 
     <meta
@@ -72,9 +72,9 @@
     >
 
 
-    <!-- =========================
-         SOCIAL PREVIEW
-    ========================== -->
+    <!-- =====================================================
+         TWITTER / SOCIAL PREVIEW
+    ====================================================== -->
 
     <meta
         name="twitter:card"
@@ -88,7 +88,7 @@
 
     <meta
         name="twitter:description"
-        content="Your source for 6b6t kits. Browse available kits and check current stock."
+        content="Your source for 6b6t kits. Browse available kits, check stock, and find ways to join 6b6t."
     >
 
     <meta
@@ -97,11 +97,15 @@
     >
 
 
-    <!-- =========================
+    <!-- =====================================================
          WEBSITE CSS
-    ========================== -->
+    ====================================================== -->
 
     <style>
+
+        /* =================================================
+           RESET
+        ================================================== */
 
         * {
             box-sizing: border-box;
@@ -116,6 +120,7 @@
 
 
         body {
+
             font-family:
                 Arial,
                 Helvetica,
@@ -132,9 +137,9 @@
         }
 
 
-        /* =========================
+        /* =================================================
            HEADER
-        ========================== */
+        ================================================== */
 
         header {
 
@@ -160,10 +165,10 @@
                 14px 40px;
 
             background:
-                rgba(10, 11, 15, 0.94);
+                rgba(10, 11, 15, 0.95);
 
             border-bottom:
-                1px solid #24212d;
+                1px solid #282430;
 
             backdrop-filter:
                 blur(14px);
@@ -238,7 +243,7 @@
         nav a {
 
             color:
-                #a8a3b2;
+                #aaa5b3;
 
             text-decoration:
                 none;
@@ -257,13 +262,13 @@
         nav a:hover {
 
             color:
-                #b85cff;
+                #b968ff;
         }
 
 
-        /* =========================
+        /* =================================================
            HERO
-        ========================== */
+        ================================================== */
 
         .hero {
 
@@ -356,7 +361,7 @@
             filter:
                 drop-shadow(
                     0 0 30px
-                    rgba(168, 85, 247, 0.35)
+                    rgba(168, 85, 247, 0.4)
                 );
 
             animation:
@@ -368,11 +373,13 @@
 
             0%,
             100% {
+
                 transform:
                     translateY(0);
             }
 
             50% {
+
                 transform:
                     translateY(-8px);
             }
@@ -470,11 +477,11 @@
         }
 
 
-        /* =========================
-           MAIN
-        ========================== */
+        /* =================================================
+           GENERAL SECTION
+        ================================================== */
 
-        .kits-section {
+        .section {
 
             max-width:
                 1200px;
@@ -483,7 +490,7 @@
                 auto;
 
             padding:
-                60px 20px 100px;
+                60px 20px;
         }
 
 
@@ -514,12 +521,15 @@
 
             font-size:
                 15px;
+
+            line-height:
+                1.6;
         }
 
 
-        /* =========================
-           KIT GRID
-        ========================== */
+        /* =================================================
+           KITS
+        ================================================== */
 
         .kits-grid {
 
@@ -536,10 +546,6 @@
                 18px;
         }
 
-
-        /* =========================
-           KIT CARD
-        ========================== */
 
         .kit {
 
@@ -603,9 +609,9 @@
         }
 
 
-        /* =========================
+        /* =================================================
            STOCK INDICATOR
-        ========================== */
+        ================================================== */
 
         .stock {
 
@@ -645,7 +651,7 @@
         }
 
 
-        /* GREEN */
+        /* 50+ STOCK */
 
         .stock.full {
 
@@ -665,7 +671,7 @@
         }
 
 
-        /* YELLOW */
+        /* 1-49 STOCK */
 
         .stock.low {
 
@@ -685,7 +691,7 @@
         }
 
 
-        /* RED */
+        /* 0 STOCK */
 
         .stock.out {
 
@@ -705,9 +711,9 @@
         }
 
 
-        /* =========================
+        /* =================================================
            COMING SOON
-        ========================== */
+        ================================================== */
 
         .coming-soon {
 
@@ -761,9 +767,192 @@
         }
 
 
-        /* =========================
+        /* =================================================
+           JOIN 6B6T
+        ================================================== */
+
+        .join-section {
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+            padding:
+                40px 20px 80px;
+        }
+
+
+        .join-notice {
+
+            margin-bottom:
+                30px;
+
+            padding:
+                20px 22px;
+
+            background:
+                rgba(168, 85, 247, 0.08);
+
+            border:
+                1px solid
+                rgba(168, 85, 247, 0.25);
+
+            border-radius:
+                12px;
+
+            text-align:
+                center;
+
+            color:
+                #aaa5b3;
+
+            line-height:
+                1.6;
+        }
+
+
+        .join-notice strong {
+
+            color:
+                #ffffff;
+        }
+
+
+        .ip-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(270px, 1fr)
+                );
+
+            gap:
+                12px;
+        }
+
+
+        .ip-card {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+            padding:
+                15px 17px;
+
+            background:
+                #121118;
+
+            border:
+                1px solid #282530;
+
+            border-radius:
+                10px;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .ip-card:hover {
+
+            border-color:
+                #a855f7;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.3);
+        }
+
+
+        .ip-address {
+
+            color:
+                #ffffff;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            word-break:
+                break-all;
+        }
+
+
+        .copy-button {
+
+            flex-shrink:
+                0;
+
+            border:
+                none;
+
+            background:
+                #8b35d9;
+
+            color:
+                white;
+
+            padding:
+                8px 14px;
+
+            border-radius:
+                7px;
+
+            font-weight:
+                800;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .copy-button:hover {
+
+            background:
+                #a855f7;
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .copy-button.copied {
+
+            background:
+                #35a853;
+        }
+
+
+        /* =================================================
            FOOTER
-        ========================== */
+        ================================================== */
 
         footer {
 
@@ -774,7 +963,7 @@
                 center;
 
             padding:
-                28px 20px;
+                30px 20px;
 
             color:
                 #6f6a77;
@@ -794,9 +983,9 @@
         }
 
 
-        /* =========================
+        /* =================================================
            MOBILE
-        ========================== */
+        ================================================== */
 
         @media (max-width: 700px) {
 
@@ -865,10 +1054,10 @@
             }
 
 
-            .kits-section {
+            .section {
 
                 padding:
-                    45px 18px 75px;
+                    45px 18px;
             }
 
 
@@ -876,6 +1065,37 @@
 
                 grid-template-columns:
                     1fr;
+            }
+
+
+            .join-section {
+
+                padding:
+                    30px 18px 60px;
+            }
+
+
+            .ip-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .ip-card {
+
+                padding:
+                    14px;
+            }
+
+
+            .copy-button {
+
+                padding:
+                    8px 12px;
+
+                font-size:
+                    12px;
             }
 
 
@@ -895,9 +1115,9 @@
 <body>
 
 
-    <!-- =========================
+    <!-- =====================================================
          HEADER
-    ========================== -->
+    ====================================================== -->
 
     <header>
 
@@ -930,14 +1150,18 @@
                 Kits
             </a>
 
+            <a href="#join">
+                Join
+            </a>
+
         </nav>
 
     </header>
 
 
-    <!-- =========================
+    <!-- =====================================================
          HERO
-    ========================== -->
+    ====================================================== -->
 
     <section class="hero">
 
@@ -979,12 +1203,12 @@
     </section>
 
 
-    <!-- =========================
-         KITS
-    ========================== -->
+    <!-- =====================================================
+         KITS SECTION
+    ====================================================== -->
 
     <section
-        class="kits-section"
+        class="section"
         id="kits"
     >
 
@@ -1016,6 +1240,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1035,6 +1260,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1054,6 +1280,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1073,6 +1300,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1092,6 +1320,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1111,6 +1340,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1130,6 +1360,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1149,6 +1380,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1168,6 +1400,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1187,6 +1420,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1206,6 +1440,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1225,6 +1460,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1244,6 +1480,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1263,6 +1500,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1282,6 +1520,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1301,6 +1540,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1320,6 +1560,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1339,6 +1580,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1358,6 +1600,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1377,6 +1620,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1396,6 +1640,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1415,6 +1660,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1434,6 +1680,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1453,6 +1700,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1472,6 +1720,7 @@
                 >
 
                     <span class="dot"></span>
+
                     <span class="stock-text"></span>
 
                 </div>
@@ -1482,9 +1731,9 @@
         </div>
 
 
-        <!-- =========================
+        <!-- =================================================
              MORE KITS
-        ========================== -->
+        ================================================== -->
 
         <div class="coming-soon">
 
@@ -1505,9 +1754,364 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
+         WAYS TO JOIN 6B6T
+    ====================================================== -->
+
+    <section
+        class="join-section"
+        id="join"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                Need Another Way to Join 6b6t?
+            </h2>
+
+            <p>
+
+                Having trouble connecting?
+                Here are the 6b6t addresses available
+                for connecting to the network.
+
+            </p>
+
+        </div>
+
+
+        <div class="join-notice">
+
+            <strong>
+                Can't connect using one address?
+            </strong>
+
+            <br>
+
+            Try another address below.
+            Click <strong>Copy</strong> to quickly copy
+            an address to your clipboard.
+
+        </div>
+
+
+        <div class="ip-grid">
+
+
+            <!-- ALT -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    alt.6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'alt.6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- ALT 2 -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    alt2.6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'alt2.6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- ALT 3 -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    alt3.6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'alt3.6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- ALT 4 -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    alt4.6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'alt4.6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- ALT 5 -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    alt5.6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'alt5.6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- EU -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    eu.6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'eu.6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- MC -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    mc.6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'mc.6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- PLAY -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    play.6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'play.6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- 6B6T CC -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    6b6t.cc
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, '6b6t.cc')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- 7B7T -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    7b7t.me
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, '7b7t.me')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- 8B8T -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    8b8t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, '8b8t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- 10B10T -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    10b10t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, '10b10t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- L2X9 -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    l2x9.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'l2x9.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- ALACITY -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    alacity.net
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'alacity.net')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- SIMPLE ANARCHY -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    simpleanarchy.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'simpleanarchy.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- ANARCHY PVP -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    anarchypvp.pw
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, 'anarchypvp.pw')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- MAIN -->
+
+            <div class="ip-card">
+
+                <span class="ip-address">
+                    6b6t.org
+                </span>
+
+                <button
+                    class="copy-button"
+                    onclick="copyIP(this, '6b6t.org')"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ====================================================== -->
 
     <footer>
 
@@ -1515,7 +2119,13 @@
             6b6t Vault
         </span>
 
-        <br><br>
+        <br>
+        <br>
+
+        Your source for 6b6t kits.
+
+        <br>
+        <br>
 
         © 2026 6b6t Vault.
         All rights reserved.
@@ -1523,42 +2133,26 @@
     </footer>
 
 
-    <!-- =========================
-         STOCK SYSTEM
-    ========================== -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script>
 
-        /*
-        ==========================================
-        6b6t VAULT STOCK SYSTEM
 
-        50+  = GREEN / IN STOCK
-        1-49 = YELLOW / LOW STOCK
-        0    = RED / OUT OF STOCK
+        /* =================================================
+           STOCK SYSTEM
 
-        Change the number in:
-
-        data-stock="100"
-
-        to update the stock.
-
-        Examples:
-
-        data-stock="100"
-        = In Stock
-
-        data-stock="25"
-        = Low Stock
-
-        data-stock="0"
-        = Out of Stock
-        ==========================================
-        */
+           50+  = GREEN / IN STOCK
+           1-49 = YELLOW / LOW STOCK
+           0    = RED / OUT OF STOCK
+        ================================================== */
 
 
         const stockItems =
-            document.querySelectorAll(".stock");
+            document.querySelectorAll(
+                ".stock"
+            );
 
 
         stockItems.forEach(stock => {
@@ -1610,10 +2204,130 @@
 
         });
 
+
+        /* =================================================
+           COPY IP ADDRESS
+        ================================================== */
+
+
+        function copyIP(button, ip) {
+
+            navigator.clipboard
+                .writeText(ip)
+                .then(() => {
+
+                    const originalText =
+                        button.textContent;
+
+
+                    button.textContent =
+                        "Copied!";
+
+
+                    button.classList.add(
+                        "copied"
+                    );
+
+
+                    setTimeout(() => {
+
+                        button.textContent =
+                            originalText;
+
+                        button.classList.remove(
+                            "copied"
+                        );
+
+                    }, 1500);
+
+                })
+
+                .catch(() => {
+
+                    /* Fallback for browsers
+                       that block clipboard access */
+
+                    const textarea =
+                        document.createElement(
+                            "textarea"
+                        );
+
+
+                    textarea.value =
+                        ip;
+
+
+                    textarea.style.position =
+                        "fixed";
+
+                    textarea.style.opacity =
+                        "0";
+
+
+                    document.body.appendChild(
+                        textarea
+                    );
+
+
+                    textarea.focus();
+
+                    textarea.select();
+
+
+                    try {
+
+                        document.execCommand(
+                            "copy"
+                        );
+
+
+                        const originalText =
+                            button.textContent;
+
+
+                        button.textContent =
+                            "Copied!";
+
+
+                        button.classList.add(
+                            "copied"
+                        );
+
+
+                        setTimeout(() => {
+
+                            button.textContent =
+                                originalText;
+
+                            button.classList.remove(
+                                "copied"
+                            );
+
+                        }, 1500);
+
+                    }
+
+                    catch {
+
+                        alert(
+                            "Copy failed. Please copy this address manually:\n\n"
+                            + ip
+                        );
+
+                    }
+
+
+                    document.body.removeChild(
+                        textarea
+                    );
+
+                });
+
+        }
+
     </script>
 
 
 </body>
 
 </html>
-```

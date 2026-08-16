@@ -22,6 +22,11 @@
         content="#a855f7"
     >
 
+
+    <!-- =====================================================
+         OPEN GRAPH
+    ====================================================== -->
+
     <meta
         property="og:type"
         content="website"
@@ -62,26 +67,10 @@
         content="image/png"
     >
 
-    <meta
-        name="twitter:card"
-        content="summary_large_image"
-    >
 
-    <meta
-        name="twitter:title"
-        content="6b6t Vault"
-    >
-
-    <meta
-        name="twitter:description"
-        content="Your source for 6b6t kits, resources, and server information."
-    >
-
-    <meta
-        name="twitter:image"
-        content="https://6b6t.lol/6B6T%20Vault%20logo.png"
-    >
-
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
 
     <style>
 
@@ -91,11 +80,14 @@
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             font-family:
                 Arial,
                 Helvetica,
@@ -114,7 +106,7 @@
 
         /* =================================================
            MAINTENANCE BANNER
-        ================================================= */
+        ================================================== */
 
         #maintenanceBanner {
 
@@ -152,6 +144,7 @@
                 rgba(255,255,255,0.15);
         }
 
+
         #maintenanceBanner span {
 
             opacity:
@@ -164,7 +157,7 @@
 
         /* =================================================
            HEADER
-        ================================================= */
+        ================================================== */
 
         header {
 
@@ -199,6 +192,7 @@
                 blur(14px);
         }
 
+
         .brand {
 
             display:
@@ -217,6 +211,7 @@
                 white;
         }
 
+
         .brand img {
 
             width:
@@ -232,6 +227,7 @@
                 10px;
         }
 
+
         .brand-name {
 
             font-size:
@@ -241,11 +237,13 @@
                 900;
         }
 
+
         .brand-name span {
 
             color:
                 #a855f7;
         }
+
 
         nav {
 
@@ -255,6 +253,7 @@
             gap:
                 28px;
         }
+
 
         nav a {
 
@@ -274,6 +273,7 @@
                 0.2s;
         }
 
+
         nav a:hover {
 
             color:
@@ -283,7 +283,7 @@
 
         /* =================================================
            HERO
-        ================================================= */
+        ================================================== */
 
         .hero {
 
@@ -314,6 +314,7 @@
                 );
         }
 
+
         .hero-content {
 
             position:
@@ -322,6 +323,7 @@
             z-index:
                 1;
         }
+
 
         .hero-logo {
 
@@ -347,6 +349,7 @@
                 float 4s ease-in-out infinite;
         }
 
+
         @keyframes float {
 
             0%,
@@ -360,6 +363,7 @@
                     translateY(-8px);
             }
         }
+
 
         .hero h1 {
 
@@ -376,6 +380,7 @@
                 16px;
         }
 
+
         .hero h1 span {
 
             color:
@@ -385,6 +390,7 @@
                 0 0 25px
                 rgba(168, 85, 247, 0.45);
         }
+
 
         .hero p {
 
@@ -403,6 +409,7 @@
             line-height:
                 1.7;
         }
+
 
         .hero-button {
 
@@ -434,6 +441,7 @@
                 0.2s;
         }
 
+
         .hero-button:hover {
 
             background:
@@ -446,7 +454,7 @@
 
         /* =================================================
            GENERAL SECTION
-        ================================================= */
+        ================================================== */
 
         .section {
 
@@ -460,6 +468,7 @@
                 60px 20px;
         }
 
+
         .section-title {
 
             text-align:
@@ -469,6 +478,7 @@
                 35px;
         }
 
+
         .section-title h2 {
 
             font-size:
@@ -477,6 +487,7 @@
             margin-bottom:
                 10px;
         }
+
 
         .section-title p {
 
@@ -493,7 +504,7 @@
 
         /* =================================================
            RECENTLY ADDED
-        ================================================= */
+        ================================================== */
 
         .recent-section {
 
@@ -506,6 +517,7 @@
             padding:
                 50px 20px 20px;
         }
+
 
         .recent-grid {
 
@@ -521,6 +533,7 @@
             gap:
                 18px;
         }
+
 
         .recent-card {
 
@@ -551,6 +564,7 @@
                 0.2s;
         }
 
+
         .recent-card:hover {
 
             transform:
@@ -563,6 +577,7 @@
                 0 10px 30px
                 rgba(168, 85, 247, 0.12);
         }
+
 
         .recent-badge {
 
@@ -597,6 +612,7 @@
                 0.6px;
         }
 
+
         .recent-card h3 {
 
             font-size:
@@ -605,8 +621,8 @@
 
 
         /* =================================================
-           SEARCH / SORT / FAVORITES
-        ================================================= */
+           SEARCH / SORT
+        ================================================== */
 
         .kit-controls {
 
@@ -617,28 +633,18 @@
                 0 auto 35px;
 
             display:
-                flex;
+                grid;
+
+            grid-template-columns:
+                1fr 220px;
 
             gap:
                 12px;
-
-            flex-wrap:
-                wrap;
         }
 
-        .search-container {
 
-            flex:
-                1;
-
-            min-width:
-                240px;
-
-            margin:
-                0;
-        }
-
-        .search-box {
+        .search-box,
+        .sort-select {
 
             width:
                 100%;
@@ -668,13 +674,16 @@
                 0.2s;
         }
 
+
         .search-box::placeholder {
 
             color:
                 #6f6a77;
         }
 
-        .search-box:focus {
+
+        .search-box:focus,
+        .sort-select:focus {
 
             border-color:
                 #a855f7;
@@ -684,81 +693,13 @@
                 rgba(168, 85, 247, 0.08);
         }
 
+
         .sort-select {
 
-            padding:
-                15px 16px;
-
-            background:
-                #121118;
-
-            color:
-                #ffffff;
-
-            border:
-                1px solid #302b38;
-
-            border-radius:
-                10px;
-
-            outline:
-                none;
-
-            font-size:
-                14px;
-
-            font-weight:
-                700;
-
             cursor:
                 pointer;
         }
 
-        .sort-select:focus {
-
-            border-color:
-                #a855f7;
-        }
-
-        .favorite-filter {
-
-            padding:
-                15px 18px;
-
-            border:
-                1px solid #302b38;
-
-            background:
-                #121118;
-
-            color:
-                #ffffff;
-
-            border-radius:
-                10px;
-
-            font-size:
-                14px;
-
-            font-weight:
-                800;
-
-            cursor:
-                pointer;
-
-            transition:
-                0.2s;
-        }
-
-        .favorite-filter:hover,
-        .favorite-filter.active {
-
-            background:
-                #8b35d9;
-
-            border-color:
-                #a855f7;
-        }
 
         .search-results {
 
@@ -772,16 +713,16 @@
                 14px;
 
             margin-top:
-                12px;
+                -20px;
 
-            width:
-                100%;
+            margin-bottom:
+                25px;
         }
 
 
         /* =================================================
            KITS
-        ================================================= */
+        ================================================== */
 
         .kits-grid {
 
@@ -797,6 +738,7 @@
             gap:
                 18px;
         }
+
 
         .kit {
 
@@ -820,7 +762,7 @@
                 24px;
 
             min-height:
-                155px;
+                160px;
 
             display:
                 flex;
@@ -835,6 +777,7 @@
                 0.2s ease;
         }
 
+
         .kit:hover {
 
             transform:
@@ -848,11 +791,13 @@
                 rgba(0, 0, 0, 0.45);
         }
 
+
         .kit.hidden {
 
             display:
                 none;
         }
+
 
         .kit h3 {
 
@@ -872,7 +817,7 @@
 
         /* =================================================
            FAVORITE BUTTON
-        ================================================= */
+        ================================================== */
 
         .favorite-button {
 
@@ -892,7 +837,7 @@
                 34px;
 
             border:
-                1px solid #302b38;
+                1px solid #332d3a;
 
             border-radius:
                 8px;
@@ -904,7 +849,7 @@
                 #77717f;
 
             font-size:
-                19px;
+                18px;
 
             cursor:
                 pointer;
@@ -922,25 +867,24 @@
                 center;
         }
 
-        .favorite-button:hover {
 
-            border-color:
-                #a855f7;
+        .favorite-button:hover {
 
             color:
                 #c084fc;
 
-            transform:
-                scale(1.05);
+            border-color:
+                #a855f7;
         }
 
-        .favorite-button.favorite-active {
+
+        .favorite-button.active {
 
             color:
                 #ffd43b;
 
             border-color:
-                #ffd43b;
+                rgba(255, 212, 59, 0.4);
 
             background:
                 rgba(255, 212, 59, 0.08);
@@ -949,7 +893,7 @@
 
         /* =================================================
            STOCK
-        ================================================= */
+        ================================================== */
 
         .stock {
 
@@ -969,6 +913,7 @@
                 800;
         }
 
+
         .dot {
 
             width:
@@ -984,11 +929,13 @@
                 50%;
         }
 
+
         .stock.full {
 
             color:
                 #35e35b;
         }
+
 
         .stock.full .dot {
 
@@ -1000,11 +947,13 @@
                 rgba(53, 227, 91, 0.85);
         }
 
+
         .stock.low {
 
             color:
                 #ffd43b;
         }
+
 
         .stock.low .dot {
 
@@ -1016,11 +965,13 @@
                 rgba(255, 212, 59, 0.85);
         }
 
+
         .stock.out {
 
             color:
                 #ff4141;
         }
+
 
         .stock.out .dot {
 
@@ -1034,8 +985,90 @@
 
 
         /* =================================================
+           ILLEGAL KITS
+        ================================================== */
+
+        .illegal-kit {
+
+            border-color:
+                rgba(255, 65, 65, 0.35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #1c1315,
+                    #101014
+                );
+        }
+
+
+        .illegal-kit:hover {
+
+            border-color:
+                rgba(255, 65, 65, 0.8);
+
+            box-shadow:
+                0 12px 35px
+                rgba(255, 65, 65, 0.12);
+        }
+
+
+        .illegal-badge {
+
+            display:
+                inline-block;
+
+            margin-bottom:
+                10px;
+
+            padding:
+                5px 9px;
+
+            border-radius:
+                6px;
+
+            background:
+                rgba(255, 65, 65, 0.12);
+
+            border:
+                1px solid
+                rgba(255, 65, 65, 0.25);
+
+            color:
+                #ff5c5c;
+
+            font-size:
+                10px;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                0.8px;
+        }
+
+
+        .illegal-stock {
+
+            color:
+                #aaa5b3;
+        }
+
+
+        .illegal-stock .dot {
+
+            background:
+                #77717f;
+
+            box-shadow:
+                0 0 8px
+                rgba(119, 113, 127, 0.5);
+        }
+
+
+        /* =================================================
            NO SEARCH RESULTS
-        ================================================= */
+        ================================================== */
 
         #noResults {
 
@@ -1055,7 +1088,7 @@
 
         /* =================================================
            COMING SOON
-        ================================================= */
+        ================================================== */
 
         .coming-soon {
 
@@ -1082,6 +1115,7 @@
                 15px;
         }
 
+
         .coming-soon h2 {
 
             font-size:
@@ -1090,6 +1124,7 @@
             margin-bottom:
                 12px;
         }
+
 
         .coming-soon p {
 
@@ -1108,8 +1143,8 @@
 
 
         /* =================================================
-           JOIN SECTION
-        ================================================= */
+           JOIN
+        ================================================== */
 
         .join-section {
 
@@ -1122,6 +1157,7 @@
             padding:
                 40px 20px 80px;
         }
+
 
         .join-notice {
 
@@ -1151,11 +1187,13 @@
                 1.6;
         }
 
+
         .join-notice strong {
 
             color:
                 #ffffff;
         }
+
 
         .ip-grid {
 
@@ -1171,6 +1209,7 @@
             gap:
                 12px;
         }
+
 
         .ip-card {
 
@@ -1202,6 +1241,7 @@
                 0.2s ease;
         }
 
+
         .ip-card:hover {
 
             border-color:
@@ -1210,6 +1250,7 @@
             transform:
                 translateY(-2px);
         }
+
 
         .ip-address {
 
@@ -1230,6 +1271,7 @@
             word-break:
                 break-all;
         }
+
 
         .copy-button {
 
@@ -1261,11 +1303,13 @@
                 0.2s ease;
         }
 
+
         .copy-button:hover {
 
             background:
                 #a855f7;
         }
+
 
         .copy-button.copied {
 
@@ -1276,7 +1320,7 @@
 
         /* =================================================
            FOOTER
-        ================================================= */
+        ================================================== */
 
         footer {
 
@@ -1296,6 +1340,7 @@
                 14px;
         }
 
+
         .footer-brand {
 
             color:
@@ -1308,7 +1353,7 @@
 
         /* =================================================
            MOBILE
-        ================================================= */
+        ================================================== */
 
         @media (max-width: 700px) {
 
@@ -1317,6 +1362,7 @@
                 padding:
                     12px 18px;
             }
+
 
             .brand img {
 
@@ -1327,11 +1373,13 @@
                     42px;
             }
 
+
             .brand-name {
 
                 font-size:
                     18px;
             }
+
 
             nav {
 
@@ -1339,11 +1387,13 @@
                     none;
             }
 
+
             .hero {
 
                 padding:
                     65px 20px 60px;
             }
+
 
             .hero-logo {
 
@@ -1354,11 +1404,13 @@
                     140px;
             }
 
+
             .hero h1 {
 
                 font-size:
                     42px;
             }
+
 
             .hero p {
 
@@ -1366,11 +1418,13 @@
                     16px;
             }
 
+
             .section {
 
                 padding:
                     45px 18px;
             }
+
 
             .recent-section {
 
@@ -1378,36 +1432,27 @@
                     35px 18px 10px;
             }
 
+
             .kits-grid {
 
                 grid-template-columns:
                     1fr;
             }
 
+
             .kit-controls {
 
-                flex-direction:
-                    column;
+                grid-template-columns:
+                    1fr;
             }
 
-            .search-container {
-
-                width:
-                    100%;
-            }
-
-            .sort-select,
-            .favorite-filter {
-
-                width:
-                    100%;
-            }
 
             .join-section {
 
                 padding:
                     30px 18px 60px;
             }
+
 
             .ip-grid {
 
@@ -1475,6 +1520,10 @@
                 Kits
             </a>
 
+            <a href="#illegal-kits">
+                Illegal Kits
+            </a>
+
             <a href="#join">
                 Join
             </a>
@@ -1498,6 +1547,7 @@
                 alt="6b6t Vault Logo"
             >
 
+
             <h1>
 
                 6b6t
@@ -1505,14 +1555,15 @@
 
             </h1>
 
+
             <p>
 
                 Your source for 6b6t kits.
                 Browse our collection, check stock,
-                favorite your favorite kits, and find
-                the supplies you need.
+                and find the supplies you need.
 
             </p>
+
 
             <a
                 class="hero-button"
@@ -1544,16 +1595,19 @@
 
         </div>
 
+
         <div
             class="recent-grid"
             id="recentGrid"
-        ></div>
+        >
+
+        </div>
 
     </section>
 
 
     <!-- =====================================================
-         KITS
+         NORMAL KITS
     ====================================================== -->
 
     <section
@@ -1568,29 +1622,25 @@
             </h2>
 
             <p>
-                Search, sort, and favorite the kits you want.
+                Search, sort, and favorite your favorite 6b6t Vault kits.
             </p>
 
         </div>
 
 
         <!-- =================================================
-             CONTROLS
+             SEARCH + SORT
         ================================================== -->
 
         <div class="kit-controls">
 
-            <div class="search-container">
-
-                <input
-                    type="text"
-                    id="kitSearch"
-                    class="search-box"
-                    placeholder="Search kits..."
-                    autocomplete="off"
-                >
-
-            </div>
+            <input
+                type="text"
+                id="kitSearch"
+                class="search-box"
+                placeholder="Search kits..."
+                autocomplete="off"
+            >
 
 
             <select
@@ -1602,20 +1652,20 @@
                     Sort: Default
                 </option>
 
-                <option value="nameAZ">
-                    Name: A-Z
+                <option value="az">
+                    Sort: A-Z
                 </option>
 
-                <option value="nameZA">
-                    Name: Z-A
+                <option value="za">
+                    Sort: Z-A
                 </option>
 
-                <option value="stockHigh">
-                    Stock: High to Low
+                <option value="stock-high">
+                    Stock: Highest
                 </option>
 
-                <option value="stockLow">
-                    Stock: Low to High
+                <option value="stock-low">
+                    Stock: Lowest
                 </option>
 
                 <option value="favorites">
@@ -1624,23 +1674,14 @@
 
             </select>
 
-
-            <button
-                id="favoriteFilter"
-                class="favorite-filter"
-                type="button"
-            >
-                ⭐ Favorites Only
-            </button>
+        </div>
 
 
-            <div
-                class="search-results"
-                id="searchResults"
-            >
-                Showing all kits
-            </div>
-
+        <div
+            class="search-results"
+            id="searchResults"
+        >
+            Showing all kits
         </div>
 
 
@@ -1654,7 +1695,15 @@
         >
 
 
-            <div class="kit" data-kit="Bee Nest Kit">
+            <!-- =========================
+                 KIT
+            ========================== -->
+
+            <div
+                class="kit"
+                data-kit="Bee Nest Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1668,10 +1717,7 @@
                     Bee Nest Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1682,7 +1728,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Block of Gold Kit">
+            <div
+                class="kit"
+                data-kit="Block of Gold Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1696,10 +1746,7 @@
                     Block of Gold Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1710,7 +1757,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Stash Kit">
+            <div
+                class="kit"
+                data-kit="Stash Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1724,10 +1775,7 @@
                     Stash Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1738,7 +1786,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Redstone Kit">
+            <div
+                class="kit"
+                data-kit="Redstone Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1752,10 +1804,7 @@
                     Redstone Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1766,7 +1815,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Grass Kit">
+            <div
+                class="kit"
+                data-kit="Grass Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1780,10 +1833,7 @@
                     Grass Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1794,7 +1844,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Cherry Kit">
+            <div
+                class="kit"
+                data-kit="Cherry Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1808,10 +1862,7 @@
                     Cherry Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1822,7 +1873,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Stripped Oak Log Kit">
+            <div
+                class="kit"
+                data-kit="Stripped Oak Log Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1836,10 +1891,7 @@
                     Stripped Oak Log Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1850,7 +1902,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Nether Bricks Kit">
+            <div
+                class="kit"
+                data-kit="Nether Bricks Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1864,10 +1920,7 @@
                     Nether Bricks Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1878,7 +1931,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Warped Wart Block Kit">
+            <div
+                class="kit"
+                data-kit="Warped Wart Block Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1892,10 +1949,7 @@
                     Warped Wart Block Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1906,7 +1960,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Ice Age Kit">
+            <div
+                class="kit"
+                data-kit="Ice Age Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1920,10 +1978,7 @@
                     Ice Age Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1934,7 +1989,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Pale Oak Log Kit">
+            <div
+                class="kit"
+                data-kit="Pale Oak Log Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1948,10 +2007,7 @@
                     Pale Oak Log Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1962,7 +2018,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Underwater Kit">
+            <div
+                class="kit"
+                data-kit="Underwater Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -1976,10 +2036,7 @@
                     Underwater Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -1990,7 +2047,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Mob Heads Kit">
+            <div
+                class="kit"
+                data-kit="Mob Heads Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2004,10 +2065,7 @@
                     Mob Heads Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2018,7 +2076,11 @@
             </div>
 
 
-            <div class="kit" data-kit="EChest Kit">
+            <div
+                class="kit"
+                data-kit="EChest Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2032,10 +2094,7 @@
                     EChest Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2046,7 +2105,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Player Head Kit">
+            <div
+                class="kit"
+                data-kit="Player Head Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2060,10 +2123,7 @@
                     Player Head Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2074,7 +2134,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Stained Glass Kit">
+            <div
+                class="kit"
+                data-kit="Stained Glass Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2088,10 +2152,7 @@
                     Stained Glass Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2102,7 +2163,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Grief Kit">
+            <div
+                class="kit"
+                data-kit="Grief Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2116,10 +2181,7 @@
                     Grief Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2130,7 +2192,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Beacon Kit">
+            <div
+                class="kit"
+                data-kit="Beacon Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2144,10 +2210,7 @@
                     Beacon Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2158,7 +2221,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Stone Kit">
+            <div
+                class="kit"
+                data-kit="Stone Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2172,10 +2239,7 @@
                     Stone Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2186,7 +2250,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Shulker Kit">
+            <div
+                class="kit"
+                data-kit="Shulker Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2200,10 +2268,7 @@
                     Shulker Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2214,7 +2279,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Totem Kit">
+            <div
+                class="kit"
+                data-kit="Totem Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2228,10 +2297,7 @@
                     Totem Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2242,7 +2308,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Black Concrete Kit">
+            <div
+                class="kit"
+                data-kit="Black Concrete Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2256,10 +2326,7 @@
                     Black Concrete Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2270,7 +2337,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Mangrove Swamp Kit">
+            <div
+                class="kit"
+                data-kit="Mangrove Swamp Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2284,10 +2355,7 @@
                     Mangrove Swamp Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2298,7 +2366,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Bundles Kit">
+            <div
+                class="kit"
+                data-kit="Bundles Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2312,10 +2384,7 @@
                     Bundles Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2326,7 +2395,11 @@
             </div>
 
 
-            <div class="kit" data-kit="XP Kit">
+            <div
+                class="kit"
+                data-kit="XP Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2340,10 +2413,7 @@
                     XP Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2354,12 +2424,15 @@
             </div>
 
 
-            <!-- =========================
+            <!-- =================================================
                  NEW KITS
-            ========================== -->
+            ================================================== -->
 
-
-            <div class="kit" data-kit="PVP Kit">
+            <div
+                class="kit"
+                data-kit="PVP Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2373,10 +2446,7 @@
                     PVP Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2387,7 +2457,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Bookshelves Kit">
+            <div
+                class="kit"
+                data-kit="Bookshelves Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2401,10 +2475,7 @@
                     Bookshelves Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2415,7 +2486,11 @@
             </div>
 
 
-            <div class="kit" data-kit="Block of Netherite Kit">
+            <div
+                class="kit"
+                data-kit="Block of Netherite Kit"
+                data-stock="100"
+            >
 
                 <button
                     class="favorite-button"
@@ -2429,10 +2504,7 @@
                     Block of Netherite Kit
                 </h3>
 
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
+                <div class="stock">
 
                     <span class="dot"></span>
 
@@ -2453,6 +2525,10 @@
         </div>
 
 
+        <!-- =================================================
+             MORE KITS
+        ================================================== -->
+
         <div class="coming-soon">
 
             <h2>
@@ -2466,6 +2542,216 @@
                 so check back regularly for new additions.
 
             </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ILLEGAL KITS
+    ====================================================== -->
+
+    <section
+        class="section"
+        id="illegal-kits"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                Illegal Kits
+            </h2>
+
+            <p>
+                Kits containing items that are not normally
+                obtainable through standard survival gameplay.
+            </p>
+
+        </div>
+
+
+        <div
+            class="kits-grid"
+            id="illegalKitsGrid"
+        >
+
+
+            <!-- ILLEGAL BEDROCK -->
+
+            <div
+                class="kit illegal-kit"
+                data-kit="Illegal Bedrock Kit"
+                data-stock="0"
+                data-illegal="true"
+            >
+
+                <button
+                    class="favorite-button"
+                    type="button"
+                    aria-label="Favorite Illegal Bedrock Kit"
+                >
+                    ☆
+                </button>
+
+
+                <div>
+
+                    <div class="illegal-badge">
+                        ILLEGAL
+                    </div>
+
+                    <h3>
+                        Illegal Bedrock Kit
+                    </h3>
+
+                </div>
+
+
+                <div class="stock illegal-stock">
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text">
+                        Stock Not Counted
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ILLEGAL REPEATING COMMAND BLOCK -->
+
+            <div
+                class="kit illegal-kit"
+                data-kit="Illegal Repeating Command Block Kit"
+                data-stock="0"
+                data-illegal="true"
+            >
+
+                <button
+                    class="favorite-button"
+                    type="button"
+                    aria-label="Favorite Illegal Repeating Command Block Kit"
+                >
+                    ☆
+                </button>
+
+
+                <div>
+
+                    <div class="illegal-badge">
+                        ILLEGAL
+                    </div>
+
+                    <h3>
+                        Illegal Repeating Command Block Kit
+                    </h3>
+
+                </div>
+
+
+                <div class="stock illegal-stock">
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text">
+                        Stock Not Counted
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ILLEGAL ITEMS -->
+
+            <div
+                class="kit illegal-kit"
+                data-kit="Illegal Items Kit"
+                data-stock="0"
+                data-illegal="true"
+            >
+
+                <button
+                    class="favorite-button"
+                    type="button"
+                    aria-label="Favorite Illegal Items Kit"
+                >
+                    ☆
+                </button>
+
+
+                <div>
+
+                    <div class="illegal-badge">
+                        ILLEGAL
+                    </div>
+
+                    <h3>
+                        Illegal Items Kit
+                    </h3>
+
+                </div>
+
+
+                <div class="stock illegal-stock">
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text">
+                        Stock Not Counted
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ILLEGAL END PORTAL FRAME -->
+
+            <div
+                class="kit illegal-kit"
+                data-kit="Illegal End Portal Frame Kit"
+                data-stock="0"
+                data-illegal="true"
+            >
+
+                <button
+                    class="favorite-button"
+                    type="button"
+                    aria-label="Favorite Illegal End Portal Frame Kit"
+                >
+                    ☆
+                </button>
+
+
+                <div>
+
+                    <div class="illegal-badge">
+                        ILLEGAL
+                    </div>
+
+                    <h3>
+                        Illegal End Portal Frame Kit
+                    </h3>
+
+                </div>
+
+
+                <div class="stock illegal-stock">
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text">
+                        Stock Not Counted
+                    </span>
+
+                </div>
+
+            </div>
+
 
         </div>
 
@@ -2488,10 +2774,8 @@
             </h2>
 
             <p>
-
                 Having trouble connecting?
                 Try one of the addresses below.
-
             </p>
 
         </div>
@@ -2829,19 +3113,17 @@
 
 
         /*
-           MAINTENANCE MODE
-
-           false = hidden
-           true  = visible
+            false = maintenance banner hidden
+            true  = maintenance banner visible
         */
 
         const maintenanceMode = false;
 
 
         /*
-           RECENTLY ADDED
+            Recently Added
 
-           These are currently the 3 newest kits.
+            Put the EXACT kit names here.
         */
 
         const recentlyAdded = [
@@ -2854,7 +3136,7 @@
 
 
         /* =====================================================
-           MAINTENANCE BANNER
+           MAINTENANCE MODE
         ====================================================== */
 
         const maintenanceBanner =
@@ -2872,20 +3154,38 @@
 
 
         /* =====================================================
-           STOCK SYSTEM
+           KIT ELEMENTS
         ====================================================== */
 
-        const stockItems =
-            document.querySelectorAll(
-                ".stock"
+        const kitsGrid =
+            document.getElementById(
+                "kitsGrid"
             );
 
 
-        stockItems.forEach(stock => {
+        const allKits =
+            Array.from(
+                kitsGrid.querySelectorAll(
+                    ".kit"
+                )
+            );
+
+
+        /* =====================================================
+           STOCK SYSTEM
+        ====================================================== */
+
+        allKits.forEach(kit => {
 
             const amount =
                 Number(
-                    stock.dataset.stock
+                    kit.dataset.stock
+                );
+
+
+            const stock =
+                kit.querySelector(
+                    ".stock"
                 );
 
 
@@ -2932,24 +3232,6 @@
 
 
         /* =====================================================
-           KIT ELEMENTS
-        ====================================================== */
-
-        const kitsGrid =
-            document.getElementById(
-                "kitsGrid"
-            );
-
-
-        const allKits =
-            Array.from(
-                document.querySelectorAll(
-                    ".kit"
-                )
-            );
-
-
-        /* =====================================================
            FAVORITES
         ====================================================== */
 
@@ -2957,116 +3239,124 @@
             JSON.parse(
                 localStorage.getItem(
                     "6b6tVaultFavorites"
-                ) || "[]"
-            );
+                )
+            ) || [];
 
 
         function updateFavoriteButtons() {
 
-            allKits.forEach(kit => {
-
-                const name =
-                    kit.dataset.kit;
-
-
-                const button =
-                    kit.querySelector(
-                        ".favorite-button"
-                    );
-
-
-                if (
-                    favorites.includes(name)
-                ) {
-
-                    button.textContent =
-                        "★";
-
-                    button.classList.add(
-                        "favorite-active"
-                    );
-
-                    button.setAttribute(
-                        "aria-label",
-                        "Remove " + name + " from favorites"
-                    );
-
-                }
-
-                else {
-
-                    button.textContent =
-                        "☆";
-
-                    button.classList.remove(
-                        "favorite-active"
-                    );
-
-                    button.setAttribute(
-                        "aria-label",
-                        "Favorite " + name
-                    );
-
-                }
-
-            });
-
-        }
-
-
-        allKits.forEach(kit => {
-
-            const button =
-                kit.querySelector(
+            document
+                .querySelectorAll(
                     ".favorite-button"
-                );
+                )
+                .forEach(button => {
+
+                    const kit =
+                        button.closest(
+                            ".kit"
+                        );
 
 
-            button.addEventListener(
-                "click",
-                function () {
+                    if (!kit) {
+                        return;
+                    }
+
 
                     const name =
                         kit.dataset.kit;
 
 
                     if (
-                        favorites.includes(name)
+                        favorites.includes(
+                            name
+                        )
                     ) {
 
-                        favorites =
-                            favorites.filter(
-                                item =>
-                                    item !== name
-                            );
+                        button.classList.add(
+                            "active"
+                        );
+
+                        button.textContent =
+                            "★";
 
                     }
 
                     else {
 
-                        favorites.push(
-                            name
+                        button.classList.remove(
+                            "active"
                         );
+
+                        button.textContent =
+                            "☆";
 
                     }
 
+                });
 
-                    localStorage.setItem(
-                        "6b6tVaultFavorites",
-                        JSON.stringify(
-                            favorites
-                        )
-                    );
+        }
 
 
-                    updateFavoriteButtons();
+        document
+            .querySelectorAll(
+                ".favorite-button"
+            )
+            .forEach(button => {
 
-                    filterAndSortKits();
+                button.addEventListener(
+                    "click",
+                    function () {
 
-                }
-            );
+                        const kit =
+                            this.closest(
+                                ".kit"
+                            );
 
-        });
+
+                        const name =
+                            kit.dataset.kit;
+
+
+                        if (
+                            favorites.includes(
+                                name
+                            )
+                        ) {
+
+                            favorites =
+                                favorites.filter(
+                                    item =>
+                                        item !== name
+                                );
+
+                        }
+
+                        else {
+
+                            favorites.push(
+                                name
+                            );
+
+                        }
+
+
+                        localStorage.setItem(
+                            "6b6tVaultFavorites",
+                            JSON.stringify(
+                                favorites
+                            )
+                        );
+
+
+                        updateFavoriteButtons();
+
+
+                        applyFiltersAndSort();
+
+                    }
+                );
+
+            });
 
 
         updateFavoriteButtons();
@@ -3085,13 +3375,30 @@
         recentlyAdded.forEach(
             recentKitName => {
 
-                const foundKit =
-                    allKits.find(
-                        kit =>
-                            kit.dataset.kit.toLowerCase()
+                let foundKit =
+                    null;
+
+
+                allKits.forEach(
+                    kit => {
+
+                        const kitName =
+                            kit.dataset.kit;
+
+
+                        if (
+                            kitName.toLowerCase()
                             ===
                             recentKitName.toLowerCase()
-                    );
+                        ) {
+
+                            foundKit =
+                                kit;
+
+                        }
+
+                    }
+                );
 
 
                 if (!foundKit) {
@@ -3131,24 +3438,12 @@
 
 
         /* =====================================================
-           SEARCH / SORT
+           SEARCH
         ====================================================== */
 
         const searchBox =
             document.getElementById(
                 "kitSearch"
-            );
-
-
-        const sortKits =
-            document.getElementById(
-                "sortKits"
-            );
-
-
-        const favoriteFilter =
-            document.getElementById(
-                "favoriteFilter"
             );
 
 
@@ -3164,70 +3459,30 @@
             );
 
 
-        let favoritesOnly =
-            false;
+        const sortKits =
+            document.getElementById(
+                "sortKits"
+            );
 
 
-        function filterAndSortKits() {
+        /* =====================================================
+           SORT FUNCTION
+        ====================================================== */
 
-            const search =
-                searchBox.value
-                    .toLowerCase()
-                    .trim();
+        function sortKitsArray(
+            kits,
+            sortType
+        ) {
 
-
-            const sort =
-                sortKits.value;
-
-
-            let kits =
-                [...allKits];
+            const sorted =
+                [...kits];
 
 
-            /*
-               SEARCH
-            */
+            if (
+                sortType === "az"
+            ) {
 
-            kits =
-                kits.filter(
-                    kit => {
-
-                        const name =
-                            kit.dataset.kit
-                                .toLowerCase();
-
-
-                        const matchesSearch =
-                            name.includes(
-                                search
-                            );
-
-
-                        const matchesFavorite =
-                            !favoritesOnly
-                            ||
-                            favorites.includes(
-                                kit.dataset.kit
-                            );
-
-
-                        return (
-                            matchesSearch
-                            &&
-                            matchesFavorite
-                        );
-
-                    }
-                );
-
-
-            /*
-               SORT
-            */
-
-            if (sort === "nameAZ") {
-
-                kits.sort(
+                sorted.sort(
                     (a, b) =>
                         a.dataset.kit
                             .localeCompare(
@@ -3238,9 +3493,11 @@
             }
 
 
-            else if (sort === "nameZA") {
+            else if (
+                sortType === "za"
+            ) {
 
-                kits.sort(
+                sorted.sort(
                     (a, b) =>
                         b.dataset.kit
                             .localeCompare(
@@ -3252,21 +3509,17 @@
 
 
             else if (
-                sort === "stockHigh"
+                sortType === "stock-high"
             ) {
 
-                kits.sort(
+                sorted.sort(
                     (a, b) =>
                         Number(
-                            b.querySelector(
-                                ".stock"
-                            ).dataset.stock
+                            b.dataset.stock
                         )
                         -
                         Number(
-                            a.querySelector(
-                                ".stock"
-                            ).dataset.stock
+                            a.dataset.stock
                         )
                 );
 
@@ -3274,21 +3527,17 @@
 
 
             else if (
-                sort === "stockLow"
+                sortType === "stock-low"
             ) {
 
-                kits.sort(
+                sorted.sort(
                     (a, b) =>
                         Number(
-                            a.querySelector(
-                                ".stock"
-                            ).dataset.stock
+                            a.dataset.stock
                         )
                         -
                         Number(
-                            b.querySelector(
-                                ".stock"
-                            ).dataset.stock
+                            b.dataset.stock
                         )
                 );
 
@@ -3296,10 +3545,10 @@
 
 
             else if (
-                sort === "favorites"
+                sortType === "favorites"
             ) {
 
-                kits.sort(
+                sorted.sort(
                     (a, b) => {
 
                         const aFavorite =
@@ -3343,64 +3592,93 @@
             }
 
 
-            /*
-               PUT KITS BACK INTO GRID
-            */
+            return sorted;
 
-            allKits.forEach(
-                kit => {
-
-                    kit.classList.add(
-                        "hidden"
-                    );
-
-                }
-            );
+        }
 
 
-            kits.forEach(
+        /* =====================================================
+           SEARCH + SORT
+        ====================================================== */
+
+        function applyFiltersAndSort() {
+
+            const search =
+                searchBox.value
+                    .toLowerCase()
+                    .trim();
+
+
+            const sortType =
+                sortKits.value;
+
+
+            const sortedKits =
+                sortKitsArray(
+                    allKits,
+                    sortType
+                );
+
+
+            sortedKits.forEach(
                 kit => {
 
                     kitsGrid.appendChild(
                         kit
                     );
 
-                    kit.classList.remove(
-                        "hidden"
-                    );
+                }
+            );
+
+
+            let visibleCount =
+                0;
+
+
+            allKits.forEach(
+                kit => {
+
+                    const name =
+                        kit.dataset.kit
+                            .toLowerCase();
+
+
+                    const matches =
+                        name.includes(
+                            search
+                        );
+
+
+                    if (matches) {
+
+                        kit.classList.remove(
+                            "hidden"
+                        );
+
+                        visibleCount++;
+
+                    }
+
+                    else {
+
+                        kit.classList.add(
+                            "hidden"
+                        );
+
+                    }
 
                 }
             );
 
 
-            /*
-               RESULTS
-            */
-
-            const total =
-                allKits.length;
-
-
-            if (search === "" && !favoritesOnly) {
+            if (search === "") {
 
                 searchResults.textContent =
                     "Showing all "
-                    + total
-                    + " kits";
-
-            }
-
-            else if (favoritesOnly && search === "") {
-
-                searchResults.textContent =
-                    "Showing "
-                    + kits.length
-                    + " favorite"
-                    + (
-                        kits.length === 1
-                        ? ""
-                        : "s"
-                    );
+                    +
+                    allKits.length
+                    +
+                    " kits";
 
             }
 
@@ -3408,10 +3686,13 @@
 
                 searchResults.textContent =
                     "Found "
-                    + kits.length
-                    + " kit"
-                    + (
-                        kits.length === 1
+                    +
+                    visibleCount
+                    +
+                    " kit"
+                    +
+                    (
+                        visibleCount === 1
                         ? ""
                         : "s"
                     );
@@ -3419,7 +3700,11 @@
             }
 
 
-            if (kits.length === 0) {
+            if (
+                visibleCount === 0
+                &&
+                search !== ""
+            ) {
 
                 noResults.style.display =
                     "block";
@@ -3438,48 +3723,31 @@
 
         searchBox.addEventListener(
             "input",
-            filterAndSortKits
+            applyFiltersAndSort
         );
 
 
         sortKits.addEventListener(
             "change",
-            filterAndSortKits
-        );
-
-
-        favoriteFilter.addEventListener(
-            "click",
-            function () {
-
-                favoritesOnly =
-                    !favoritesOnly;
-
-
-                favoriteFilter.classList.toggle(
-                    "active",
-                    favoritesOnly
-                );
-
-
-                filterAndSortKits();
-
-            }
+            applyFiltersAndSort
         );
 
 
         /* =====================================================
-           INITIAL KIT DISPLAY
+           INITIAL SEARCH
         ====================================================== */
 
-        filterAndSortKits();
+        applyFiltersAndSort();
 
 
         /* =====================================================
            COPY SERVER IP
         ====================================================== */
 
-        function copyIP(button, ip) {
+        function copyIP(
+            button,
+            ip
+        ) {
 
             navigator.clipboard
                 .writeText(ip)
@@ -3514,6 +3782,7 @@
 
                 })
 
+
                 .catch(() => {
 
                     const textarea =
@@ -3528,6 +3797,7 @@
 
                     textarea.style.position =
                         "fixed";
+
 
                     textarea.style.opacity =
                         "0";
@@ -3579,7 +3849,8 @@
 
                         alert(
                             "Copy failed.\n\n"
-                            + ip
+                            +
+                            ip
                         );
 
                     }

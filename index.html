@@ -139,13 +139,17 @@
 
         #maintenanceBanner {
 
-            display: none;
+            display:
+                none;
 
-            width: 100%;
+            width:
+                100%;
 
-            padding: 13px 20px;
+            padding:
+                13px 20px;
 
-            text-align: center;
+            text-align:
+                center;
 
             background:
                 linear-gradient(
@@ -155,11 +159,14 @@
                     #8b35d9
                 );
 
-            color: #ffffff;
+            color:
+                #ffffff;
 
-            font-size: 14px;
+            font-size:
+                14px;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
             border-bottom:
                 1px solid
@@ -643,13 +650,13 @@
 
 
         /* =================================================
-           SEARCH
+           SEARCH + FILTERS
         ================================================== */
 
         .search-container {
 
             max-width:
-                650px;
+                750px;
 
             margin:
                 0 auto 35px;
@@ -705,6 +712,114 @@
         }
 
 
+        .kit-controls {
+
+            display:
+                flex;
+
+            gap:
+                10px;
+
+            margin-top:
+                12px;
+
+            align-items:
+                center;
+        }
+
+
+        .sort-select {
+
+            flex:
+                1;
+
+            padding:
+                12px 14px;
+
+            background:
+                #121118;
+
+            color:
+                #ffffff;
+
+            border:
+                1px solid #302b38;
+
+            border-radius:
+                9px;
+
+            outline:
+                none;
+
+            cursor:
+                pointer;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+        }
+
+
+        .sort-select:focus {
+
+            border-color:
+                #a855f7;
+        }
+
+
+        .favorite-filter {
+
+            padding:
+                12px 16px;
+
+            border:
+                1px solid #302b38;
+
+            background:
+                #121118;
+
+            color:
+                #aaa5b3;
+
+            border-radius:
+                9px;
+
+            cursor:
+                pointer;
+
+            font-weight:
+                800;
+
+            transition:
+                0.2s;
+        }
+
+
+        .favorite-filter:hover {
+
+            border-color:
+                #a855f7;
+
+            color:
+                #ffffff;
+        }
+
+
+        .favorite-filter.active {
+
+            background:
+                rgba(168, 85, 247, 0.16);
+
+            border-color:
+                #a855f7;
+
+            color:
+                #d8b4fe;
+        }
+
+
         .search-results {
 
             text-align:
@@ -743,6 +858,9 @@
 
         .kit {
 
+            position:
+                relative;
+
             background:
                 linear-gradient(
                     145deg,
@@ -760,7 +878,7 @@
                 24px;
 
             min-height:
-                130px;
+                150px;
 
             display:
                 flex;
@@ -797,6 +915,22 @@
         }
 
 
+        .kit-header {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                flex-start;
+
+            gap:
+                12px;
+        }
+
+
         .kit h3 {
 
             font-size:
@@ -807,6 +941,77 @@
 
             margin-bottom:
                 20px;
+        }
+
+
+        /* =================================================
+           FAVORITE BUTTON
+        ================================================== */
+
+        .favorite-button {
+
+            width:
+                36px;
+
+            height:
+                36px;
+
+            min-width:
+                36px;
+
+            border:
+                1px solid #302b38;
+
+            border-radius:
+                9px;
+
+            background:
+                #121118;
+
+            color:
+                #77717f;
+
+            font-size:
+                20px;
+
+            line-height:
+                1;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .favorite-button:hover {
+
+            border-color:
+                #a855f7;
+
+            color:
+                #c084fc;
+
+            transform:
+                scale(1.05);
+        }
+
+
+        .favorite-button.active {
+
+            color:
+                #c084fc;
+
+            background:
+                rgba(168, 85, 247, 0.15);
+
+            border-color:
+                #a855f7;
+
+            box-shadow:
+                0 0 14px
+                rgba(168, 85, 247, 0.15);
         }
 
 
@@ -1277,6 +1482,23 @@
             }
 
 
+            .kit-controls {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+            }
+
+
+            .favorite-filter {
+
+                width:
+                    100%;
+            }
+
+
             .join-section {
 
                 padding:
@@ -1302,8 +1524,6 @@
 
     <!-- =====================================================
          MAINTENANCE BANNER
-
-         The JavaScript at the bottom controls this.
 
          false = hidden
          true  = visible
@@ -1453,13 +1673,15 @@
             </h2>
 
             <p>
-                Search through the available 6b6t Vault kits.
+                Search, sort, and favorite your 6b6t Vault kits.
             </p>
 
         </div>
 
 
-        <!-- SEARCH -->
+        <!-- =================================================
+             SEARCH + SORT
+        ================================================== -->
 
         <div class="search-container">
 
@@ -1471,6 +1693,54 @@
                 autocomplete="off"
             >
 
+
+            <div class="kit-controls">
+
+                <select
+                    id="sortKits"
+                    class="sort-select"
+                >
+
+                    <option value="default">
+                        Sort: Default
+                    </option>
+
+                    <option value="az">
+                        A → Z
+                    </option>
+
+                    <option value="za">
+                        Z → A
+                    </option>
+
+                    <option value="highStock">
+                        Highest Stock
+                    </option>
+
+                    <option value="lowStock">
+                        Lowest Stock
+                    </option>
+
+                    <option value="favoritesFirst">
+                        Favorites First
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="favoriteFilter"
+                    class="favorite-filter"
+                    type="button"
+                >
+
+                    ☆ Favorites Only
+
+                </button>
+
+            </div>
+
+
             <div
                 class="search-results"
                 id="searchResults"
@@ -1481,7 +1751,9 @@
         </div>
 
 
-        <!-- KIT GRID -->
+        <!-- =================================================
+             KIT GRID
+        ================================================== -->
 
         <div
             class="kits-grid"
@@ -1489,9 +1761,9 @@
         >
 
 
-            <!-- =========================
+            <!-- =================================================
                  KIT DATA
-            ========================== -->
+            ================================================== -->
 
 
             <div
@@ -1499,9 +1771,21 @@
                 data-kit="Bee Nest Kit"
             >
 
-                <h3>
-                    Bee Nest Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Bee Nest Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Bee Nest Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1522,9 +1806,21 @@
                 data-kit="Block of Gold Kit"
             >
 
-                <h3>
-                    Block of Gold Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Block of Gold Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Block of Gold Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1545,9 +1841,21 @@
                 data-kit="Stash Kit"
             >
 
-                <h3>
-                    Stash Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Stash Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Stash Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1568,9 +1876,21 @@
                 data-kit="Redstone Kit"
             >
 
-                <h3>
-                    Redstone Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Redstone Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Redstone Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1591,9 +1911,21 @@
                 data-kit="Grass Kit"
             >
 
-                <h3>
-                    Grass Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Grass Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Grass Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1614,9 +1946,21 @@
                 data-kit="Cherry Kit"
             >
 
-                <h3>
-                    Cherry Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Cherry Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Cherry Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1637,9 +1981,21 @@
                 data-kit="Stripped Oak Log Kit"
             >
 
-                <h3>
-                    Stripped Oak Log Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Stripped Oak Log Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Stripped Oak Log Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1660,9 +2016,21 @@
                 data-kit="Nether Bricks Kit"
             >
 
-                <h3>
-                    Nether Bricks Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Nether Bricks Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Nether Bricks Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1683,9 +2051,21 @@
                 data-kit="Warped Wart Block Kit"
             >
 
-                <h3>
-                    Warped Wart Block Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Warped Wart Block Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Warped Wart Block Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1706,9 +2086,21 @@
                 data-kit="Ice Age Kit"
             >
 
-                <h3>
-                    Ice Age Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Ice Age Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Ice Age Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1729,9 +2121,21 @@
                 data-kit="Pale Oak Log Kit"
             >
 
-                <h3>
-                    Pale Oak Log Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Pale Oak Log Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Pale Oak Log Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1752,9 +2156,21 @@
                 data-kit="Underwater Kit"
             >
 
-                <h3>
-                    Underwater Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Underwater Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Underwater Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1775,9 +2191,21 @@
                 data-kit="Mob Heads Kit"
             >
 
-                <h3>
-                    Mob Heads Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Mob Heads Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Mob Heads Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1798,9 +2226,21 @@
                 data-kit="EChest Kit"
             >
 
-                <h3>
-                    EChest Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        EChest Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite EChest Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1821,9 +2261,21 @@
                 data-kit="Player Head Kit"
             >
 
-                <h3>
-                    Player Head Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Player Head Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Player Head Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1844,9 +2296,21 @@
                 data-kit="Stained Glass Kit"
             >
 
-                <h3>
-                    Stained Glass Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Stained Glass Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Stained Glass Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1867,9 +2331,21 @@
                 data-kit="Grief Kit"
             >
 
-                <h3>
-                    Grief Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Grief Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Grief Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1890,9 +2366,21 @@
                 data-kit="Beacon Kit"
             >
 
-                <h3>
-                    Beacon Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Beacon Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Beacon Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1913,9 +2401,21 @@
                 data-kit="Stone Kit"
             >
 
-                <h3>
-                    Stone Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Stone Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Stone Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1936,9 +2436,21 @@
                 data-kit="Shulker Kit"
             >
 
-                <h3>
-                    Shulker Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Shulker Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Shulker Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1959,9 +2471,21 @@
                 data-kit="Totem Kit"
             >
 
-                <h3>
-                    Totem Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Totem Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Totem Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -1982,9 +2506,21 @@
                 data-kit="Black Concrete Kit"
             >
 
-                <h3>
-                    Black Concrete Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Black Concrete Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Black Concrete Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -2005,9 +2541,21 @@
                 data-kit="Mangrove Swamp Kit"
             >
 
-                <h3>
-                    Mangrove Swamp Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Mangrove Swamp Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Mangrove Swamp Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -2028,9 +2576,21 @@
                 data-kit="Bundles Kit"
             >
 
-                <h3>
-                    Bundles Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        Bundles Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite Bundles Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -2051,9 +2611,21 @@
                 data-kit="XP Kit"
             >
 
-                <h3>
-                    XP Kit
-                </h3>
+                <div class="kit-header">
+
+                    <h3>
+                        XP Kit
+                    </h3>
+
+                    <button
+                        class="favorite-button"
+                        type="button"
+                        aria-label="Favorite XP Kit"
+                    >
+                        ☆
+                    </button>
+
+                </div>
 
                 <div
                     class="stock"
@@ -2462,34 +3034,13 @@
            false = banner hidden
            true  = banner shown
 
-           Example:
-
-           const maintenanceMode = true;
-
         ====================================================== */
 
-        const maintenanceMode = true;
+        const maintenanceMode = false;
 
 
         /* =====================================================
            RECENTLY ADDED KITS
-        ======================================================
-
-           Put the EXACT kit names here.
-
-           The website will automatically create the
-           Recently Added cards.
-
-           Example:
-
-           const recentlyAdded = [
-               "XP Kit",
-               "Bundles Kit",
-               "Totem Kit"
-           ];
-
-           To remove a kit, simply delete it from this list.
-
         ====================================================== */
 
         const recentlyAdded = [
@@ -2522,12 +3073,6 @@
 
         /* =====================================================
            STOCK SYSTEM
-        ======================================================
-
-           50+  = GREEN / IN STOCK
-           1-49 = YELLOW / LOW STOCK
-           0    = RED / OUT OF STOCK
-
         ====================================================== */
 
         const stockItems =
@@ -2587,6 +3132,572 @@
 
 
         /* =====================================================
+           KIT VARIABLES
+        ====================================================== */
+
+        const kitsGrid =
+            document.getElementById(
+                "kitsGrid"
+            );
+
+
+        const allKits =
+            Array.from(
+                document.querySelectorAll(
+                    ".kit"
+                )
+            );
+
+
+        const searchBox =
+            document.getElementById(
+                "kitSearch"
+            );
+
+
+        const searchResults =
+            document.getElementById(
+                "searchResults"
+            );
+
+
+        const noResults =
+            document.getElementById(
+                "noResults"
+            );
+
+
+        const sortKits =
+            document.getElementById(
+                "sortKits"
+            );
+
+
+        const favoriteFilter =
+            document.getElementById(
+                "favoriteFilter"
+            );
+
+
+        /* =====================================================
+           FAVORITES
+        ======================================================
+
+           Favorites are stored locally in the browser.
+
+        ====================================================== */
+
+        let favorites =
+            JSON.parse(
+                localStorage.getItem(
+                    "6b6tVaultFavorites"
+                )
+            ) || [];
+
+
+        function isFavorite(kitName) {
+
+            return favorites.includes(
+                kitName
+            );
+
+        }
+
+
+        function saveFavorites() {
+
+            localStorage.setItem(
+                "6b6tVaultFavorites",
+                JSON.stringify(
+                    favorites
+                )
+            );
+
+        }
+
+
+        function updateFavoriteButton(
+            kit,
+            button
+        ) {
+
+            const kitName =
+                kit.dataset.kit;
+
+
+            if (
+                isFavorite(
+                    kitName
+                )
+            ) {
+
+                button.textContent =
+                    "★";
+
+                button.classList.add(
+                    "active"
+                );
+
+                button.setAttribute(
+                    "aria-label",
+                    "Remove "
+                    + kitName
+                    + " from favorites"
+                );
+
+            }
+
+            else {
+
+                button.textContent =
+                    "☆";
+
+                button.classList.remove(
+                    "active"
+                );
+
+                button.setAttribute(
+                    "aria-label",
+                    "Add "
+                    + kitName
+                    + " to favorites"
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           FAVORITE BUTTONS
+        ====================================================== */
+
+        allKits.forEach(kit => {
+
+            const button =
+                kit.querySelector(
+                    ".favorite-button"
+                );
+
+
+            updateFavoriteButton(
+                kit,
+                button
+            );
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const kitName =
+                        kit.dataset.kit;
+
+
+                    if (
+                        isFavorite(
+                            kitName
+                        )
+                    ) {
+
+                        favorites =
+                            favorites.filter(
+                                name =>
+                                    name !==
+                                    kitName
+                            );
+
+                    }
+
+                    else {
+
+                        favorites.push(
+                            kitName
+                        );
+
+                    }
+
+
+                    saveFavorites();
+
+
+                    updateFavoriteButton(
+                        kit,
+                        button
+                    );
+
+
+                    applyFilters();
+
+                }
+            );
+
+        });
+
+
+        /* =====================================================
+           SORT KITS
+        ====================================================== */
+
+        function sortKitCards() {
+
+            const sort =
+                sortKits.value;
+
+
+            const sorted =
+                [...allKits];
+
+
+            if (
+                sort === "az"
+            ) {
+
+                sorted.sort(
+                    (a, b) =>
+                        a.dataset.kit.localeCompare(
+                            b.dataset.kit
+                        )
+                );
+
+            }
+
+
+            else if (
+                sort === "za"
+            ) {
+
+                sorted.sort(
+                    (a, b) =>
+                        b.dataset.kit.localeCompare(
+                            a.dataset.kit
+                        )
+                );
+
+            }
+
+
+            else if (
+                sort === "highStock"
+            ) {
+
+                sorted.sort(
+                    (a, b) =>
+                        Number(
+                            b.querySelector(
+                                ".stock"
+                            ).dataset.stock
+                        )
+                        -
+                        Number(
+                            a.querySelector(
+                                ".stock"
+                            ).dataset.stock
+                        )
+                );
+
+            }
+
+
+            else if (
+                sort === "lowStock"
+            ) {
+
+                sorted.sort(
+                    (a, b) =>
+                        Number(
+                            a.querySelector(
+                                ".stock"
+                            ).dataset.stock
+                        )
+                        -
+                        Number(
+                            b.querySelector(
+                                ".stock"
+                            ).dataset.stock
+                        )
+                );
+
+            }
+
+
+            else if (
+                sort === "favoritesFirst"
+            ) {
+
+                sorted.sort(
+                    (a, b) => {
+
+                        const aFavorite =
+                            isFavorite(
+                                a.dataset.kit
+                            );
+
+                        const bFavorite =
+                            isFavorite(
+                                b.dataset.kit
+                            );
+
+
+                        if (
+                            aFavorite &&
+                            !bFavorite
+                        ) {
+                            return -1;
+                        }
+
+
+                        if (
+                            !aFavorite &&
+                            bFavorite
+                        ) {
+                            return 1;
+                        }
+
+
+                        return 0;
+
+                    }
+                );
+
+            }
+
+
+            sorted.forEach(
+                kit =>
+                    kitsGrid.appendChild(
+                        kit
+                    )
+            );
+
+        }
+
+
+        sortKits.addEventListener(
+            "change",
+            function () {
+
+                sortKitCards();
+
+            }
+        );
+
+
+        /* =====================================================
+           FAVORITES ONLY
+        ====================================================== */
+
+        let favoritesOnly =
+            false;
+
+
+        favoriteFilter.addEventListener(
+            "click",
+            function () {
+
+                favoritesOnly =
+                    !favoritesOnly;
+
+
+                if (
+                    favoritesOnly
+                ) {
+
+                    favoriteFilter.classList.add(
+                        "active"
+                    );
+
+                    favoriteFilter.textContent =
+                        "★ Showing Favorites";
+
+                }
+
+                else {
+
+                    favoriteFilter.classList.remove(
+                        "active"
+                    );
+
+                    favoriteFilter.textContent =
+                        "☆ Favorites Only";
+
+                }
+
+
+                applyFilters();
+
+            }
+        );
+
+
+        /* =====================================================
+           SEARCH + FILTER SYSTEM
+        ====================================================== */
+
+        function applyFilters() {
+
+            const search =
+                searchBox.value
+                    .toLowerCase()
+                    .trim();
+
+
+            let visibleCount =
+                0;
+
+
+            allKits.forEach(
+                kit => {
+
+                    const name =
+                        kit.dataset.kit
+                            .toLowerCase();
+
+
+                    const matchesSearch =
+                        name.includes(
+                            search
+                        );
+
+
+                    const matchesFavorite =
+                        !favoritesOnly
+                        ||
+                        isFavorite(
+                            kit.dataset.kit
+                        );
+
+
+                    if (
+                        matchesSearch
+                        &&
+                        matchesFavorite
+                    ) {
+
+                        kit.classList.remove(
+                            "hidden"
+                        );
+
+                        visibleCount++;
+
+                    }
+
+                    else {
+
+                        kit.classList.add(
+                            "hidden"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            if (
+                search === ""
+                &&
+                !favoritesOnly
+            ) {
+
+                searchResults.textContent =
+                    "Showing all "
+                    + allKits.length
+                    + " kits";
+
+            }
+
+            else if (
+                favoritesOnly
+                &&
+                search === ""
+            ) {
+
+                searchResults.textContent =
+                    "Showing "
+                    + visibleCount
+                    + " favorite"
+                    + (
+                        visibleCount === 1
+                        ? ""
+                        : "s"
+                    );
+
+            }
+
+            else {
+
+                searchResults.textContent =
+                    "Found "
+                    + visibleCount
+                    + " kit"
+                    + (
+                        visibleCount === 1
+                        ? ""
+                        : "s"
+                    );
+
+            }
+
+
+            if (
+                visibleCount === 0
+            ) {
+
+                noResults.style.display =
+                    "block";
+
+
+                if (
+                    favoritesOnly
+                    &&
+                    search === ""
+                ) {
+
+                    noResults.textContent =
+                        "You haven't favorited any kits yet.";
+
+                }
+
+                else {
+
+                    noResults.textContent =
+                        "No kits found matching your search.";
+
+                }
+
+            }
+
+            else {
+
+                noResults.style.display =
+                    "none";
+
+            }
+
+        }
+
+
+        searchBox.addEventListener(
+            "input",
+            function () {
+
+                applyFilters();
+
+            }
+        );
+
+
+        /* =====================================================
+           INITIAL SORT + FILTER
+        ====================================================== */
+
+        sortKitCards();
+
+        applyFilters();
+
+
+        /* =====================================================
            RECENTLY ADDED GENERATOR
         ====================================================== */
 
@@ -2596,16 +3707,11 @@
             );
 
 
-        const allKits =
-            document.querySelectorAll(
-                ".kit"
-            );
-
-
         recentlyAdded.forEach(
             recentKitName => {
 
-                let foundKit = null;
+                let foundKit =
+                    null;
 
 
                 allKits.forEach(
@@ -2630,8 +3736,12 @@
                 );
 
 
-                if (!foundKit) {
+                if (
+                    !foundKit
+                ) {
+
                     return;
+
                 }
 
 
@@ -2667,134 +3777,13 @@
 
 
         /* =====================================================
-           KIT SEARCH
-        ====================================================== */
-
-        const searchBox =
-            document.getElementById(
-                "kitSearch"
-            );
-
-
-        const searchResults =
-            document.getElementById(
-                "searchResults"
-            );
-
-
-        const noResults =
-            document.getElementById(
-                "noResults"
-            );
-
-
-        searchBox.addEventListener(
-            "input",
-            function () {
-
-                const search =
-                    this.value
-                        .toLowerCase()
-                        .trim();
-
-
-                let visibleCount =
-                    0;
-
-
-                allKits.forEach(
-                    kit => {
-
-                        const name =
-                            kit.dataset.kit
-                                .toLowerCase();
-
-
-                        if (
-                            name.includes(search)
-                        ) {
-
-                            kit.classList.remove(
-                                "hidden"
-                            );
-
-                            visibleCount++;
-
-                        }
-
-                        else {
-
-                            kit.classList.add(
-                                "hidden"
-                            );
-
-                        }
-
-                    }
-                );
-
-
-                if (search === "") {
-
-                    searchResults.textContent =
-                        "Showing all "
-                        + allKits.length
-                        + " kits";
-
-                }
-
-                else {
-
-                    searchResults.textContent =
-                        "Found "
-                        + visibleCount
-                        + " kit"
-                        + (
-                            visibleCount === 1
-                            ? ""
-                            : "s"
-                        );
-
-                }
-
-
-                if (
-                    visibleCount === 0
-                    &&
-                    search !== ""
-                ) {
-
-                    noResults.style.display =
-                        "block";
-
-                }
-
-                else {
-
-                    noResults.style.display =
-                        "none";
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           INITIAL SEARCH STATUS
-        ====================================================== */
-
-        searchResults.textContent =
-            "Showing all "
-            + allKits.length
-            + " kits";
-
-
-        /* =====================================================
            COPY SERVER IP
         ====================================================== */
 
-        function copyIP(button, ip) {
+        function copyIP(
+            button,
+            ip
+        ) {
 
             navigator.clipboard
                 .writeText(ip)

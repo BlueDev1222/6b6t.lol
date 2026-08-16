@@ -18,7 +18,7 @@
 
     <meta
         name="description"
-        content="6b6t Vault — your source for 6b6t kits. Browse available kits, check stock, and find ways to join 6b6t."
+        content="6b6t Vault — your source for 6b6t kits, resources, and server information."
     >
 
     <meta
@@ -48,7 +48,7 @@
 
     <meta
         property="og:description"
-        content="Your source for 6b6t kits. Browse available kits, check stock, and find ways to join 6b6t."
+        content="Your source for 6b6t kits, resources, and server information."
     >
 
     <meta
@@ -88,7 +88,7 @@
 
     <meta
         name="twitter:description"
-        content="Your source for 6b6t kits. Browse available kits, check stock, and find ways to join 6b6t."
+        content="Your source for 6b6t kits, resources, and server information."
     >
 
     <meta
@@ -102,10 +102,6 @@
     ====================================================== -->
 
     <style>
-
-        /* =================================================
-           RESET
-        ================================================== */
 
         * {
             box-sizing: border-box;
@@ -134,6 +130,50 @@
 
             min-height:
                 100vh;
+        }
+
+
+        /* =================================================
+           MAINTENANCE BANNER
+        ================================================== */
+
+        #maintenanceBanner {
+
+            display: none;
+
+            width: 100%;
+
+            padding: 13px 20px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8b35d9,
+                    #a855f7,
+                    #8b35d9
+                );
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.15);
+        }
+
+
+        #maintenanceBanner span {
+
+            opacity:
+                0.9;
+
+            font-weight:
+                600;
         }
 
 
@@ -217,9 +257,6 @@
 
             font-weight:
                 900;
-
-            letter-spacing:
-                -0.5px;
         }
 
 
@@ -300,40 +337,6 @@
         }
 
 
-        .hero::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                500px;
-
-            height:
-                500px;
-
-            left:
-                50%;
-
-            top:
-                -300px;
-
-            transform:
-                translateX(-50%);
-
-            background:
-                rgba(168, 85, 247, 0.12);
-
-            filter:
-                blur(100px);
-
-            border-radius:
-                50%;
-        }
-
-
         .hero-content {
 
             position:
@@ -373,13 +376,11 @@
 
             0%,
             100% {
-
                 transform:
                     translateY(0);
             }
 
             50% {
-
                 transform:
                     translateY(-8px);
             }
@@ -460,10 +461,6 @@
 
             transition:
                 0.2s;
-
-            box-shadow:
-                0 8px 25px
-                rgba(139, 53, 217, 0.25);
         }
 
 
@@ -500,7 +497,7 @@
                 center;
 
             margin-bottom:
-                40px;
+                35px;
         }
 
 
@@ -524,6 +521,203 @@
 
             line-height:
                 1.6;
+        }
+
+
+        /* =================================================
+           RECENTLY ADDED
+        ================================================== */
+
+        .recent-section {
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+            padding:
+                50px 20px 20px;
+        }
+
+
+        .recent-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(230px, 1fr)
+                );
+
+            gap:
+                18px;
+        }
+
+
+        .recent-card {
+
+            position:
+                relative;
+
+            padding:
+                24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #18131f,
+                    #101014
+                );
+
+            border:
+                1px solid
+                rgba(168, 85, 247, 0.35);
+
+            border-radius:
+                13px;
+
+            overflow:
+                hidden;
+
+            transition:
+                0.2s;
+        }
+
+
+        .recent-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                #a855f7;
+
+            box-shadow:
+                0 10px 30px
+                rgba(168, 85, 247, 0.12);
+        }
+
+
+        .recent-badge {
+
+            display:
+                inline-block;
+
+            margin-bottom:
+                12px;
+
+            padding:
+                5px 9px;
+
+            border-radius:
+                6px;
+
+            background:
+                rgba(168, 85, 247, 0.15);
+
+            color:
+                #c084fc;
+
+            font-size:
+                11px;
+
+            font-weight:
+                900;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.6px;
+        }
+
+
+        .recent-card h3 {
+
+            font-size:
+                18px;
+        }
+
+
+        /* =================================================
+           SEARCH
+        ================================================== */
+
+        .search-container {
+
+            max-width:
+                650px;
+
+            margin:
+                0 auto 35px;
+        }
+
+
+        .search-box {
+
+            width:
+                100%;
+
+            padding:
+                15px 18px;
+
+            background:
+                #121118;
+
+            color:
+                #ffffff;
+
+            border:
+                1px solid #302b38;
+
+            border-radius:
+                10px;
+
+            outline:
+                none;
+
+            font-size:
+                15px;
+
+            transition:
+                0.2s;
+        }
+
+
+        .search-box::placeholder {
+
+            color:
+                #6f6a77;
+        }
+
+
+        .search-box:focus {
+
+            border-color:
+                #a855f7;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(168, 85, 247, 0.08);
+        }
+
+
+        .search-results {
+
+            text-align:
+                center;
+
+            color:
+                #77717f;
+
+            font-size:
+                14px;
+
+            margin-top:
+                12px;
         }
 
 
@@ -596,6 +790,13 @@
         }
 
 
+        .kit.hidden {
+
+            display:
+                none;
+        }
+
+
         .kit h3 {
 
             font-size:
@@ -610,7 +811,7 @@
 
 
         /* =================================================
-           STOCK INDICATOR
+           STOCK
         ================================================== */
 
         .stock {
@@ -645,13 +846,8 @@
 
             border-radius:
                 50%;
-
-            background:
-                #777;
         }
 
-
-        /* 50+ STOCK */
 
         .stock.full {
 
@@ -671,8 +867,6 @@
         }
 
 
-        /* 1-49 STOCK */
-
         .stock.low {
 
             color:
@@ -691,8 +885,6 @@
         }
 
 
-        /* 0 STOCK */
-
         .stock.out {
 
             color:
@@ -708,6 +900,26 @@
             box-shadow:
                 0 0 11px
                 rgba(255, 65, 65, 0.85);
+        }
+
+
+        /* =================================================
+           NO SEARCH RESULTS
+        ================================================== */
+
+        #noResults {
+
+            display:
+                none;
+
+            text-align:
+                center;
+
+            padding:
+                40px 20px;
+
+            color:
+                #77717f;
         }
 
 
@@ -768,7 +980,7 @@
 
 
         /* =================================================
-           JOIN 6B6T
+           JOIN SECTION
         ================================================== */
 
         .join-section {
@@ -874,10 +1086,6 @@
 
             transform:
                 translateY(-2px);
-
-            box-shadow:
-                0 8px 25px
-                rgba(0, 0, 0, 0.3);
         }
 
 
@@ -937,9 +1145,6 @@
 
             background:
                 #a855f7;
-
-            transform:
-                translateY(-1px);
         }
 
 
@@ -1041,9 +1246,6 @@
 
                 font-size:
                     42px;
-
-                letter-spacing:
-                    -1px;
             }
 
 
@@ -1058,6 +1260,13 @@
 
                 padding:
                     45px 18px;
+            }
+
+
+            .recent-section {
+
+                padding:
+                    35px 18px 10px;
             }
 
 
@@ -1081,30 +1290,6 @@
                     1fr;
             }
 
-
-            .ip-card {
-
-                padding:
-                    14px;
-            }
-
-
-            .copy-button {
-
-                padding:
-                    8px 12px;
-
-                font-size:
-                    12px;
-            }
-
-
-            .coming-soon {
-
-                margin-top:
-                    40px;
-            }
-
         }
 
     </style>
@@ -1113,6 +1298,26 @@
 
 
 <body>
+
+
+    <!-- =====================================================
+         MAINTENANCE BANNER
+
+         The JavaScript at the bottom controls this.
+
+         false = hidden
+         true  = visible
+    ====================================================== -->
+
+    <div id="maintenanceBanner">
+
+        ⚠️ 6b6t Vault is currently undergoing maintenance.
+
+        <span>
+            Some kits or services may temporarily be unavailable.
+        </span>
+
+    </div>
 
 
     <!-- =====================================================
@@ -1204,7 +1409,36 @@
 
 
     <!-- =====================================================
-         KITS SECTION
+         RECENTLY ADDED
+    ====================================================== -->
+
+    <section class="recent-section">
+
+        <div class="section-title">
+
+            <h2>
+                Recently Added
+            </h2>
+
+            <p>
+                Check out the latest kits added to the Vault.
+            </p>
+
+        </div>
+
+
+        <div
+            class="recent-grid"
+            id="recentGrid"
+        >
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         KITS
     ====================================================== -->
 
     <section
@@ -1219,20 +1453,55 @@
             </h2>
 
             <p>
-                Check the current stock status of each kit.
+                Search through the available 6b6t Vault kits.
             </p>
 
         </div>
 
 
-        <div class="kits-grid">
+        <!-- SEARCH -->
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="kitSearch"
+                class="search-box"
+                placeholder="Search kits..."
+                autocomplete="off"
+            >
+
+            <div
+                class="search-results"
+                id="searchResults"
+            >
+                Showing all kits
+            </div>
+
+        </div>
 
 
-            <!-- BEE NEST -->
+        <!-- KIT GRID -->
 
-            <div class="kit">
+        <div
+            class="kits-grid"
+            id="kitsGrid"
+        >
 
-                <h3>Bee Nest Kit</h3>
+
+            <!-- =========================
+                 KIT DATA
+            ========================== -->
+
+
+            <div
+                class="kit"
+                data-kit="Bee Nest Kit"
+            >
+
+                <h3>
+                    Bee Nest Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1248,31 +1517,14 @@
             </div>
 
 
-            <!-- BLOCK OF GOLD -->
+            <div
+                class="kit"
+                data-kit="Block of Gold Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Block of Gold Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- STASH -->
-
-            <div class="kit">
-
-                <h3>Stash Kit</h3>
+                <h3>
+                    Block of Gold Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1288,31 +1540,14 @@
             </div>
 
 
-            <!-- REDSTONE -->
+            <div
+                class="kit"
+                data-kit="Stash Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Redstone Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- GRASS -->
-
-            <div class="kit">
-
-                <h3>Grass Kit</h3>
+                <h3>
+                    Stash Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1328,31 +1563,14 @@
             </div>
 
 
-            <!-- CHERRY -->
+            <div
+                class="kit"
+                data-kit="Redstone Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Cherry Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- STRIPPED OAK -->
-
-            <div class="kit">
-
-                <h3>Stripped Oak Log Kit</h3>
+                <h3>
+                    Redstone Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1368,31 +1586,14 @@
             </div>
 
 
-            <!-- NETHER BRICKS -->
+            <div
+                class="kit"
+                data-kit="Grass Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Nether Bricks Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- WARPED WART -->
-
-            <div class="kit">
-
-                <h3>Warped Wart Block Kit</h3>
+                <h3>
+                    Grass Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1408,31 +1609,14 @@
             </div>
 
 
-            <!-- ICE AGE -->
+            <div
+                class="kit"
+                data-kit="Cherry Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Ice Age Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- PALE OAK -->
-
-            <div class="kit">
-
-                <h3>Pale Oak Log Kit</h3>
+                <h3>
+                    Cherry Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1448,31 +1632,14 @@
             </div>
 
 
-            <!-- UNDERWATER -->
+            <div
+                class="kit"
+                data-kit="Stripped Oak Log Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Underwater Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- MOB HEADS -->
-
-            <div class="kit">
-
-                <h3>Mob Heads Kit</h3>
+                <h3>
+                    Stripped Oak Log Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1488,31 +1655,14 @@
             </div>
 
 
-            <!-- ENDER CHEST -->
+            <div
+                class="kit"
+                data-kit="Nether Bricks Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Ender Chest Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- PLAYER HEAD -->
-
-            <div class="kit">
-
-                <h3>Player Head Kit</h3>
+                <h3>
+                    Nether Bricks Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1528,31 +1678,14 @@
             </div>
 
 
-            <!-- STAINED GLASS -->
+            <div
+                class="kit"
+                data-kit="Warped Wart Block Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Stained Glass Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- GRIEF -->
-
-            <div class="kit">
-
-                <h3>Grief Kit</h3>
+                <h3>
+                    Warped Wart Block Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1568,31 +1701,14 @@
             </div>
 
 
-            <!-- BEACON -->
+            <div
+                class="kit"
+                data-kit="Ice Age Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Beacon Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- STONE -->
-
-            <div class="kit">
-
-                <h3>Stone Kit</h3>
+                <h3>
+                    Ice Age Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1608,31 +1724,14 @@
             </div>
 
 
-            <!-- SHULKER -->
+            <div
+                class="kit"
+                data-kit="Pale Oak Log Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Shulker Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- TOTEM -->
-
-            <div class="kit">
-
-                <h3>Totem Kit</h3>
+                <h3>
+                    Pale Oak Log Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1648,31 +1747,14 @@
             </div>
 
 
-            <!-- BLACK CONCRETE -->
+            <div
+                class="kit"
+                data-kit="Underwater Kit"
+            >
 
-            <div class="kit">
-
-                <h3>Black Concrete Kit</h3>
-
-                <div
-                    class="stock"
-                    data-stock="100"
-                >
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- MANGROVE SWAMP -->
-
-            <div class="kit">
-
-                <h3>Mangrove Swamp Kit</h3>
+                <h3>
+                    Underwater Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1688,11 +1770,37 @@
             </div>
 
 
-            <!-- BUNDLES -->
+            <div
+                class="kit"
+                data-kit="Mob Heads Kit"
+            >
 
-            <div class="kit">
+                <h3>
+                    Mob Heads Kit
+                </h3>
 
-                <h3>Bundles Kit</h3>
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="EChest Kit"
+            >
+
+                <h3>
+                    EChest Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1708,11 +1816,14 @@
             </div>
 
 
-            <!-- XP -->
+            <div
+                class="kit"
+                data-kit="Player Head Kit"
+            >
 
-            <div class="kit">
-
-                <h3>XP Kit</h3>
+                <h3>
+                    Player Head Kit
+                </h3>
 
                 <div
                     class="stock"
@@ -1727,6 +1838,243 @@
 
             </div>
 
+
+            <div
+                class="kit"
+                data-kit="Stained Glass Kit"
+            >
+
+                <h3>
+                    Stained Glass Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="Grief Kit"
+            >
+
+                <h3>
+                    Grief Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="Beacon Kit"
+            >
+
+                <h3>
+                    Beacon Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="Stone Kit"
+            >
+
+                <h3>
+                    Stone Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="Shulker Kit"
+            >
+
+                <h3>
+                    Shulker Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="Totem Kit"
+            >
+
+                <h3>
+                    Totem Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="Black Concrete Kit"
+            >
+
+                <h3>
+                    Black Concrete Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="Mangrove Swamp Kit"
+            >
+
+                <h3>
+                    Mangrove Swamp Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="Bundles Kit"
+            >
+
+                <h3>
+                    Bundles Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kit"
+                data-kit="XP Kit"
+            >
+
+                <h3>
+                    XP Kit
+                </h3>
+
+                <div
+                    class="stock"
+                    data-stock="100"
+                >
+
+                    <span class="dot"></span>
+
+                    <span class="stock-text"></span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div id="noResults">
+
+            No kits found matching your search.
 
         </div>
 
@@ -1772,8 +2120,7 @@
             <p>
 
                 Having trouble connecting?
-                Here are the 6b6t addresses available
-                for connecting to the network.
+                Try one of the addresses below.
 
             </p>
 
@@ -1789,16 +2136,14 @@
             <br>
 
             Try another address below.
-            Click <strong>Copy</strong> to quickly copy
-            an address to your clipboard.
+            Click <strong>Copy</strong> to copy it
+            to your clipboard.
 
         </div>
 
 
         <div class="ip-grid">
 
-
-            <!-- ALT -->
 
             <div class="ip-card">
 
@@ -1816,8 +2161,6 @@
             </div>
 
 
-            <!-- ALT 2 -->
-
             <div class="ip-card">
 
                 <span class="ip-address">
@@ -1833,8 +2176,6 @@
 
             </div>
 
-
-            <!-- ALT 3 -->
 
             <div class="ip-card">
 
@@ -1852,8 +2193,6 @@
             </div>
 
 
-            <!-- ALT 4 -->
-
             <div class="ip-card">
 
                 <span class="ip-address">
@@ -1869,8 +2208,6 @@
 
             </div>
 
-
-            <!-- ALT 5 -->
 
             <div class="ip-card">
 
@@ -1888,8 +2225,6 @@
             </div>
 
 
-            <!-- EU -->
-
             <div class="ip-card">
 
                 <span class="ip-address">
@@ -1905,8 +2240,6 @@
 
             </div>
 
-
-            <!-- MC -->
 
             <div class="ip-card">
 
@@ -1924,8 +2257,6 @@
             </div>
 
 
-            <!-- PLAY -->
-
             <div class="ip-card">
 
                 <span class="ip-address">
@@ -1941,8 +2272,6 @@
 
             </div>
 
-
-            <!-- 6B6T CC -->
 
             <div class="ip-card">
 
@@ -1960,8 +2289,6 @@
             </div>
 
 
-            <!-- 7B7T -->
-
             <div class="ip-card">
 
                 <span class="ip-address">
@@ -1977,8 +2304,6 @@
 
             </div>
 
-
-            <!-- 8B8T -->
 
             <div class="ip-card">
 
@@ -1996,8 +2321,6 @@
             </div>
 
 
-            <!-- 10B10T -->
-
             <div class="ip-card">
 
                 <span class="ip-address">
@@ -2013,8 +2336,6 @@
 
             </div>
 
-
-            <!-- L2X9 -->
 
             <div class="ip-card">
 
@@ -2032,8 +2353,6 @@
             </div>
 
 
-            <!-- ALACITY -->
-
             <div class="ip-card">
 
                 <span class="ip-address">
@@ -2049,8 +2368,6 @@
 
             </div>
 
-
-            <!-- SIMPLE ANARCHY -->
 
             <div class="ip-card">
 
@@ -2068,8 +2385,6 @@
             </div>
 
 
-            <!-- ANARCHY PVP -->
-
             <div class="ip-card">
 
                 <span class="ip-address">
@@ -2085,8 +2400,6 @@
 
             </div>
 
-
-            <!-- MAIN -->
 
             <div class="ip-card">
 
@@ -2140,14 +2453,82 @@
     <script>
 
 
-        /* =================================================
+        /* =====================================================
+           6b6t VAULT SETTINGS
+        ======================================================
+
+           MAINTENANCE MODE
+
+           false = banner hidden
+           true  = banner shown
+
+           Example:
+
+           const maintenanceMode = true;
+
+        ====================================================== */
+
+        const maintenanceMode = false;
+
+
+        /* =====================================================
+           RECENTLY ADDED KITS
+        ======================================================
+
+           Put the EXACT kit names here.
+
+           The website will automatically create the
+           Recently Added cards.
+
+           Example:
+
+           const recentlyAdded = [
+               "XP Kit",
+               "Bundles Kit",
+               "Totem Kit"
+           ];
+
+           To remove a kit, simply delete it from this list.
+
+        ====================================================== */
+
+        const recentlyAdded = [
+
+            "XP Kit",
+            "Bundles Kit",
+            "Totem Kit",
+            "Shulker Kit"
+
+        ];
+
+
+        /* =====================================================
+           MAINTENANCE BANNER
+        ====================================================== */
+
+        const maintenanceBanner =
+            document.getElementById(
+                "maintenanceBanner"
+            );
+
+
+        if (maintenanceMode === true) {
+
+            maintenanceBanner.style.display =
+                "block";
+
+        }
+
+
+        /* =====================================================
            STOCK SYSTEM
+        ======================================================
 
            50+  = GREEN / IN STOCK
            1-49 = YELLOW / LOW STOCK
            0    = RED / OUT OF STOCK
-        ================================================== */
 
+        ====================================================== */
 
         const stockItems =
             document.querySelectorAll(
@@ -2176,7 +2557,7 @@
                 );
 
                 text.textContent =
-                    "In Stock";
+                    "In Stock — " + amount;
 
             }
 
@@ -2187,7 +2568,7 @@
                 );
 
                 text.textContent =
-                    "Low Stock";
+                    "Low Stock — " + amount;
 
             }
 
@@ -2205,10 +2586,213 @@
         });
 
 
-        /* =================================================
-           COPY IP ADDRESS
-        ================================================== */
+        /* =====================================================
+           RECENTLY ADDED GENERATOR
+        ====================================================== */
 
+        const recentGrid =
+            document.getElementById(
+                "recentGrid"
+            );
+
+
+        const allKits =
+            document.querySelectorAll(
+                ".kit"
+            );
+
+
+        recentlyAdded.forEach(
+            recentKitName => {
+
+                let foundKit = null;
+
+
+                allKits.forEach(
+                    kit => {
+
+                        const kitName =
+                            kit.dataset.kit;
+
+
+                        if (
+                            kitName.toLowerCase()
+                            ===
+                            recentKitName.toLowerCase()
+                        ) {
+
+                            foundKit =
+                                kit;
+
+                        }
+
+                    }
+                );
+
+
+                if (!foundKit) {
+                    return;
+                }
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "recent-card";
+
+
+                card.innerHTML = `
+
+                    <div class="recent-badge">
+                        New
+                    </div>
+
+                    <h3>
+                        ${foundKit.dataset.kit}
+                    </h3>
+
+                `;
+
+
+                recentGrid.appendChild(
+                    card
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           KIT SEARCH
+        ====================================================== */
+
+        const searchBox =
+            document.getElementById(
+                "kitSearch"
+            );
+
+
+        const searchResults =
+            document.getElementById(
+                "searchResults"
+            );
+
+
+        const noResults =
+            document.getElementById(
+                "noResults"
+            );
+
+
+        searchBox.addEventListener(
+            "input",
+            function () {
+
+                const search =
+                    this.value
+                        .toLowerCase()
+                        .trim();
+
+
+                let visibleCount =
+                    0;
+
+
+                allKits.forEach(
+                    kit => {
+
+                        const name =
+                            kit.dataset.kit
+                                .toLowerCase();
+
+
+                        if (
+                            name.includes(search)
+                        ) {
+
+                            kit.classList.remove(
+                                "hidden"
+                            );
+
+                            visibleCount++;
+
+                        }
+
+                        else {
+
+                            kit.classList.add(
+                                "hidden"
+                            );
+
+                        }
+
+                    }
+                );
+
+
+                if (search === "") {
+
+                    searchResults.textContent =
+                        "Showing all "
+                        + allKits.length
+                        + " kits";
+
+                }
+
+                else {
+
+                    searchResults.textContent =
+                        "Found "
+                        + visibleCount
+                        + " kit"
+                        + (
+                            visibleCount === 1
+                            ? ""
+                            : "s"
+                        );
+
+                }
+
+
+                if (
+                    visibleCount === 0
+                    &&
+                    search !== ""
+                ) {
+
+                    noResults.style.display =
+                        "block";
+
+                }
+
+                else {
+
+                    noResults.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           INITIAL SEARCH STATUS
+        ====================================================== */
+
+        searchResults.textContent =
+            "Showing all "
+            + allKits.length
+            + " kits";
+
+
+        /* =====================================================
+           COPY SERVER IP
+        ====================================================== */
 
         function copyIP(button, ip) {
 
@@ -2216,7 +2800,7 @@
                 .writeText(ip)
                 .then(() => {
 
-                    const originalText =
+                    const original =
                         button.textContent;
 
 
@@ -2229,23 +2813,23 @@
                     );
 
 
-                    setTimeout(() => {
+                    setTimeout(
+                        () => {
 
-                        button.textContent =
-                            originalText;
+                            button.textContent =
+                                original;
 
-                        button.classList.remove(
-                            "copied"
-                        );
+                            button.classList.remove(
+                                "copied"
+                            );
 
-                    }, 1500);
+                        },
+                        1500
+                    );
 
                 })
 
                 .catch(() => {
-
-                    /* Fallback for browsers
-                       that block clipboard access */
 
                     const textarea =
                         document.createElement(
@@ -2281,10 +2865,6 @@
                         );
 
 
-                        const originalText =
-                            button.textContent;
-
-
                         button.textContent =
                             "Copied!";
 
@@ -2294,23 +2874,26 @@
                         );
 
 
-                        setTimeout(() => {
+                        setTimeout(
+                            () => {
 
-                            button.textContent =
-                                originalText;
+                                button.textContent =
+                                    "Copy";
 
-                            button.classList.remove(
-                                "copied"
-                            );
+                                button.classList.remove(
+                                    "copied"
+                                );
 
-                        }, 1500);
+                            },
+                            1500
+                        );
 
                     }
 
                     catch {
 
                         alert(
-                            "Copy failed. Please copy this address manually:\n\n"
+                            "Copy failed.\n\n"
                             + ip
                         );
 

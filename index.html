@@ -1,3872 +1,1658 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>6b6t Vault | 6b6t Kits</title>
+    <title>Qbasty Syndrome</title>
 
     <meta
         name="description"
-        content="6b6t Vault — your source for 6b6t kits, resources, and server information."
+        content="Qbasty Syndrome — the ever-growing Qbasty image archive from the 6b6t community."
     >
 
-    <meta
-        name="theme-color"
-        content="#a855f7"
-    >
-
-
-    <!-- =====================================================
-         OPEN GRAPH
-    ====================================================== -->
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:site_name"
-        content="6b6t Vault"
-    >
-
-    <meta
-        property="og:title"
-        content="6b6t Vault"
-    >
-
-    <meta
-        property="og:description"
-        content="Your source for 6b6t kits, resources, and server information."
-    >
-
-    <meta
-        property="og:url"
-        content="https://6b6t.lol/"
-    >
-
-    <meta
-        property="og:image"
-        content="https://6b6t.lol/6B6T%20Vault%20logo.png"
-    >
-
-    <meta
-        property="og:image:alt"
-        content="6b6t Vault Logo"
-    >
-
-    <meta
-        property="og:image:type"
-        content="image/png"
-    >
-
-
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
+    <meta name="theme-color" content="#5865F2">
 
     <style>
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
+        :root {
+            --bg: #07080c;
+            --bg2: #0d0f15;
+            --card: #11141b;
+            --card-hover: #171a23;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.18);
+            --text: #ffffff;
+            --muted: #9298a8;
+            --discord: #5865f2;
+            --discord-hover: #6975ff;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+        }
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 50% -15%,
+                    rgba(88, 101, 242, 0.22),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(236, 72, 153, 0.06),
+                    transparent 25%
+                ),
+                var(--bg);
+
+            color: var(--text);
 
             font-family:
-                Arial,
-                Helvetica,
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
                 sans-serif;
-
-            background:
-                #08090c;
-
-            color:
-                #ffffff;
-
-            min-height:
-                100vh;
         }
 
-
-        /* =================================================
-           MAINTENANCE BANNER
-        ================================================== */
-
-        #maintenanceBanner {
-
-            display:
-                none;
-
-            width:
-                100%;
-
-            padding:
-                13px 20px;
-
-            text-align:
-                center;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #8b35d9,
-                    #a855f7,
-                    #8b35d9
-                );
-
-            color:
-                #ffffff;
-
-            font-size:
-                14px;
-
-            font-weight:
-                800;
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.15);
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-
-        #maintenanceBanner span {
-
-            opacity:
-                0.9;
-
-            font-weight:
-                600;
+        button,
+        input,
+        select {
+            font: inherit;
         }
 
-
-        /* =================================================
-           HEADER
+        /* ==================================================
+           NAVIGATION
         ================================================== */
 
         header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
 
-            position:
-                sticky;
+            border-bottom: 1px solid var(--border);
 
-            top:
-                0;
+            background: rgba(7, 8, 12, 0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
 
-            z-index:
-                1000;
+        .nav {
+            max-width: 1500px;
+            height: 72px;
 
-            display:
-                flex;
+            margin: auto;
+            padding: 0 25px;
 
-            align-items:
-                center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            justify-content:
-                space-between;
+            gap: 20px;
+        }
 
-            padding:
-                14px 40px;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 39px;
+            height: 39px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 11px;
 
             background:
-                rgba(10, 11, 15, 0.95);
+                linear-gradient(
+                    135deg,
+                    var(--discord),
+                    var(--purple)
+                );
 
-            border-bottom:
-                1px solid #282430;
+            box-shadow:
+                0 8px 25px rgba(88, 101, 242, 0.25);
 
-            backdrop-filter:
-                blur(14px);
+            font-weight: 900;
         }
 
-
-        .brand {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-
-            text-decoration:
-                none;
-
-            color:
-                white;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
+        .nav-button {
+            padding: 10px 15px;
 
-        .brand img {
+            border: 1px solid var(--border);
+            border-radius: 9px;
 
-            width:
-                48px;
+            color: #d5d8e0;
+            font-size: 14px;
+            font-weight: 650;
 
-            height:
-                48px;
-
-            object-fit:
-                contain;
-
-            border-radius:
-                10px;
+            transition: 0.2s;
         }
 
-
-        .brand-name {
-
-            font-size:
-                20px;
-
-            font-weight:
-                900;
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: white;
         }
 
-
-        .brand-name span {
-
-            color:
-                #a855f7;
+        .discord-button {
+            background: var(--discord);
+            border-color: var(--discord);
+            color: white;
         }
 
-
-        nav {
-
-            display:
-                flex;
-
-            gap:
-                28px;
+        .discord-button:hover {
+            background: var(--discord-hover);
         }
 
-
-        nav a {
-
-            color:
-                #aaa5b3;
-
-            text-decoration:
-                none;
-
-            font-size:
-                15px;
-
-            font-weight:
-                700;
-
-            transition:
-                0.2s;
-        }
-
-
-        nav a:hover {
-
-            color:
-                #b968ff;
-        }
-
-
-        /* =================================================
+        /* ==================================================
            HERO
         ================================================== */
 
         .hero {
+            max-width: 1050px;
 
-            position:
-                relative;
+            margin: auto;
+            padding: 105px 25px 75px;
 
-            overflow:
-                hidden;
-
-            text-align:
-                center;
-
-            padding:
-                90px 20px 80px;
-
-            background:
-
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(168, 85, 247, 0.22),
-                    transparent 45%
-                ),
-
-                linear-gradient(
-                    180deg,
-                    #111019 0%,
-                    #08090c 100%
-                );
+            text-align: center;
         }
 
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
 
-        .hero-content {
+            margin-bottom: 25px;
+            padding: 8px 14px;
 
-            position:
-                relative;
+            border: 1px solid rgba(88, 101, 242, 0.35);
+            border-radius: 100px;
 
-            z-index:
-                1;
+            background: rgba(88, 101, 242, 0.08);
+
+            color: #b9beff;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
         }
-
-
-        .hero-logo {
-
-            width:
-                180px;
-
-            height:
-                180px;
-
-            object-fit:
-                contain;
-
-            margin-bottom:
-                25px;
-
-            filter:
-                drop-shadow(
-                    0 0 30px
-                    rgba(168, 85, 247, 0.4)
-                );
-
-            animation:
-                float 4s ease-in-out infinite;
-        }
-
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform:
-                    translateY(0);
-            }
-
-            50% {
-                transform:
-                    translateY(-8px);
-            }
-        }
-
 
         .hero h1 {
+            margin-bottom: 25px;
 
-            font-size:
-                58px;
+            font-size: clamp(50px, 8vw, 92px);
+            line-height: 0.95;
 
-            font-weight:
-                900;
-
-            letter-spacing:
-                -2px;
-
-            margin-bottom:
-                16px;
+            letter-spacing: -5px;
         }
 
-
-        .hero h1 span {
-
-            color:
-                #a855f7;
-
-            text-shadow:
-                0 0 25px
-                rgba(168, 85, 247, 0.45);
-        }
-
-
-        .hero p {
-
-            max-width:
-                700px;
-
-            margin:
-                auto;
-
-            color:
-                #9894a2;
-
-            font-size:
-                18px;
-
-            line-height:
-                1.7;
-        }
-
-
-        .hero-button {
-
-            display:
-                inline-block;
-
-            margin-top:
-                28px;
-
-            padding:
-                13px 25px;
-
-            border-radius:
-                9px;
-
+        .gradient-text {
             background:
-                #8b35d9;
-
-            color:
-                white;
-
-            text-decoration:
-                none;
-
-            font-weight:
-                800;
-
-            transition:
-                0.2s;
-        }
-
-
-        .hero-button:hover {
-
-            background:
-                #a855f7;
-
-            transform:
-                translateY(-2px);
-        }
-
-
-        /* =================================================
-           GENERAL SECTION
-        ================================================== */
-
-        .section {
-
-            max-width:
-                1200px;
-
-            margin:
-                auto;
-
-            padding:
-                60px 20px;
-        }
-
-
-        .section-title {
-
-            text-align:
-                center;
-
-            margin-bottom:
-                35px;
-        }
-
-
-        .section-title h2 {
-
-            font-size:
-                35px;
-
-            margin-bottom:
-                10px;
-        }
-
-
-        .section-title p {
-
-            color:
-                #85818f;
-
-            font-size:
-                15px;
-
-            line-height:
-                1.6;
-        }
-
-
-        /* =================================================
-           RECENTLY ADDED
-        ================================================== */
-
-        .recent-section {
-
-            max-width:
-                1200px;
-
-            margin:
-                auto;
-
-            padding:
-                50px 20px 20px;
-        }
-
-
-        .recent-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(230px, 1fr)
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #b7bdff,
+                    #ff8bad
                 );
 
-            gap:
-                18px;
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
         }
 
+        .hero-description {
+            max-width: 760px;
+            margin: auto;
 
-        .recent-card {
+            color: var(--muted);
 
-            position:
-                relative;
+            font-size: 18px;
+            line-height: 1.75;
+        }
 
-            padding:
-                24px;
+        .hero-buttons {
+            margin-top: 32px;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 21px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 750;
+
+            transition:
+                transform 0.2s,
+                background 0.2s,
+                border-color 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: var(--discord);
+            border-color: var(--discord);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--discord-hover);
+        }
+
+        .button-secondary {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .button-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ==================================================
+           STATS
+        ================================================== */
+
+        .stats {
+            max-width: 900px;
+
+            margin: 0 auto 80px;
+            padding: 0 25px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+        .stat {
+            padding: 22px;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.025);
+
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 27px;
+            font-weight: 850;
+        }
+
+        .stat-label {
+            color: var(--muted);
+
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==================================================
+           SOURCE / INFO
+        ================================================== */
+
+        .info-section {
+            max-width: 1100px;
+
+            margin: auto;
+            padding: 0 25px 90px;
+        }
+
+        .info-card {
+            padding: 30px;
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
 
             background:
                 linear-gradient(
-                    145deg,
-                    #18131f,
-                    #101014
-                );
-
-            border:
-                1px solid
-                rgba(168, 85, 247, 0.35);
-
-            border-radius:
-                13px;
-
-            overflow:
-                hidden;
-
-            transition:
-                0.2s;
-        }
-
-
-        .recent-card:hover {
-
-            transform:
-                translateY(-4px);
-
-            border-color:
-                #a855f7;
-
-            box-shadow:
-                0 10px 30px
-                rgba(168, 85, 247, 0.12);
-        }
-
-
-        .recent-badge {
-
-            display:
-                inline-block;
-
-            margin-bottom:
-                12px;
-
-            padding:
-                5px 9px;
-
-            border-radius:
-                6px;
-
-            background:
-                rgba(168, 85, 247, 0.15);
-
-            color:
-                #c084fc;
-
-            font-size:
-                11px;
-
-            font-weight:
-                900;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                0.6px;
-        }
-
-
-        .recent-card h3 {
-
-            font-size:
-                18px;
-        }
-
-
-        /* =================================================
-           SEARCH / SORT
-        ================================================== */
-
-        .kit-controls {
-
-            max-width:
-                900px;
-
-            margin:
-                0 auto 35px;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 220px;
-
-            gap:
-                12px;
-        }
-
-
-        .search-box,
-        .sort-select {
-
-            width:
-                100%;
-
-            padding:
-                15px 18px;
-
-            background:
-                #121118;
-
-            color:
-                #ffffff;
-
-            border:
-                1px solid #302b38;
-
-            border-radius:
-                10px;
-
-            outline:
-                none;
-
-            font-size:
-                15px;
-
-            transition:
-                0.2s;
-        }
-
-
-        .search-box::placeholder {
-
-            color:
-                #6f6a77;
-        }
-
-
-        .search-box:focus,
-        .sort-select:focus {
-
-            border-color:
-                #a855f7;
-
-            box-shadow:
-                0 0 0 3px
-                rgba(168, 85, 247, 0.08);
-        }
-
-
-        .sort-select {
-
-            cursor:
-                pointer;
-        }
-
-
-        .search-results {
-
-            text-align:
-                center;
-
-            color:
-                #77717f;
-
-            font-size:
-                14px;
-
-            margin-top:
-                -20px;
-
-            margin-bottom:
-                25px;
-        }
-
-
-        /* =================================================
-           KITS
-        ================================================== */
-
-        .kits-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(230px, 1fr)
-                );
-
-            gap:
-                18px;
-        }
-
-
-        .kit {
-
-            position:
-                relative;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #15131a,
-                    #0f1014
-                );
-
-            border:
-                1px solid #282530;
-
-            border-radius:
-                13px;
-
-            padding:
-                24px;
-
-            min-height:
-                160px;
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            justify-content:
-                space-between;
-
-            transition:
-                0.2s ease;
-        }
-
-
-        .kit:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                rgba(168, 85, 247, 0.75);
-
-            box-shadow:
-                0 12px 35px
-                rgba(0, 0, 0, 0.45);
-        }
-
-
-        .kit.hidden {
-
-            display:
-                none;
-        }
-
-
-        .kit h3 {
-
-            font-size:
-                18px;
-
-            line-height:
-                1.4;
-
-            margin-bottom:
-                20px;
-
-            padding-right:
-                35px;
-        }
-
-
-        /* =================================================
-           FAVORITE BUTTON
-        ================================================== */
-
-        .favorite-button {
-
-            position:
-                absolute;
-
-            top:
-                16px;
-
-            right:
-                16px;
-
-            width:
-                34px;
-
-            height:
-                34px;
-
-            border:
-                1px solid #332d3a;
-
-            border-radius:
-                8px;
-
-            background:
-                #121118;
-
-            color:
-                #77717f;
-
-            font-size:
-                18px;
-
-            cursor:
-                pointer;
-
-            transition:
-                0.2s;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-        }
-
-
-        .favorite-button:hover {
-
-            color:
-                #c084fc;
-
-            border-color:
-                #a855f7;
-        }
-
-
-        .favorite-button.active {
-
-            color:
-                #ffd43b;
-
-            border-color:
-                rgba(255, 212, 59, 0.4);
-
-            background:
-                rgba(255, 212, 59, 0.08);
-        }
-
-
-        /* =================================================
-           STOCK
-        ================================================== */
-
-        .stock {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                9px;
-
-            font-size:
-                14px;
-
-            font-weight:
-                800;
-        }
-
-
-        .dot {
-
-            width:
-                10px;
-
-            height:
-                10px;
-
-            min-width:
-                10px;
-
-            border-radius:
-                50%;
-        }
-
-
-        .stock.full {
-
-            color:
-                #35e35b;
-        }
-
-
-        .stock.full .dot {
-
-            background:
-                #35e35b;
-
-            box-shadow:
-                0 0 11px
-                rgba(53, 227, 91, 0.85);
-        }
-
-
-        .stock.low {
-
-            color:
-                #ffd43b;
-        }
-
-
-        .stock.low .dot {
-
-            background:
-                #ffd43b;
-
-            box-shadow:
-                0 0 11px
-                rgba(255, 212, 59, 0.85);
-        }
-
-
-        .stock.out {
-
-            color:
-                #ff4141;
-        }
-
-
-        .stock.out .dot {
-
-            background:
-                #ff4141;
-
-            box-shadow:
-                0 0 11px
-                rgba(255, 65, 65, 0.85);
-        }
-
-
-        /* =================================================
-           ILLEGAL KITS
-        ================================================== */
-
-        .illegal-kit {
-
-            border-color:
-                rgba(255, 65, 65, 0.35);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #1c1315,
-                    #101014
+                    135deg,
+                    rgba(88, 101, 242, 0.10),
+                    rgba(139, 92, 246, 0.04),
+                    rgba(255, 255, 255, 0.02)
                 );
         }
 
+        .info-card h2 {
+            margin-bottom: 10px;
 
-        .illegal-kit:hover {
+            font-size: 23px;
+        }
 
-            border-color:
-                rgba(255, 65, 65, 0.8);
+        .info-card p {
+            max-width: 850px;
+
+            color: var(--muted);
+
+            line-height: 1.75;
+        }
+
+        .info-card .button {
+            margin-top: 20px;
+        }
+
+        /* ==================================================
+           GALLERY
+        ================================================== */
+
+        .gallery-section {
+            max-width: 1500px;
+
+            margin: auto;
+            padding: 0 25px 110px;
+        }
+
+        .gallery-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            margin-bottom: 25px;
+        }
+
+        .gallery-title h2 {
+            margin-bottom: 7px;
+
+            font-size: 38px;
+            letter-spacing: -1px;
+        }
+
+        .gallery-title p {
+            color: var(--muted);
+        }
+
+        /* ==================================================
+           SEARCH
+        ================================================== */
+
+        .gallery-tools {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .search {
+            width: 260px;
+
+            padding: 12px 14px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            outline: none;
+
+            background: var(--card);
+            color: white;
+
+            transition: 0.2s;
+        }
+
+        .search::placeholder {
+            color: #6f7482;
+        }
+
+        .search:focus {
+            border-color: var(--discord);
 
             box-shadow:
-                0 12px 35px
-                rgba(255, 65, 65, 0.12);
+                0 0 0 3px rgba(88, 101, 242, 0.12);
         }
 
+        .image-counter {
+            white-space: nowrap;
 
-        .illegal-badge {
+            padding: 12px 14px;
 
-            display:
-                inline-block;
+            border: 1px solid var(--border);
+            border-radius: 10px;
 
-            margin-bottom:
-                10px;
+            background: var(--card);
 
-            padding:
-                5px 9px;
+            color: var(--muted);
 
-            border-radius:
-                6px;
-
-            background:
-                rgba(255, 65, 65, 0.12);
-
-            border:
-                1px solid
-                rgba(255, 65, 65, 0.25);
-
-            color:
-                #ff5c5c;
-
-            font-size:
-                10px;
-
-            font-weight:
-                900;
-
-            letter-spacing:
-                0.8px;
+            font-size: 13px;
         }
 
-
-        .illegal-stock {
-
-            color:
-                #aaa5b3;
+        .image-counter strong {
+            color: white;
         }
 
-
-        .illegal-stock .dot {
-
-            background:
-                #77717f;
-
-            box-shadow:
-                0 0 8px
-                rgba(119, 113, 127, 0.5);
-        }
-
-
-        /* =================================================
-           NO SEARCH RESULTS
+        /* ==================================================
+           MASONRY GALLERY
         ================================================== */
 
-        #noResults {
-
-            display:
-                none;
-
-            text-align:
-                center;
-
-            padding:
-                40px 20px;
-
-            color:
-                #77717f;
+        .gallery {
+            columns: 5 240px;
+            column-gap: 15px;
         }
 
+        .image-card {
+            position: relative;
 
-        /* =================================================
-           COMING SOON
-        ================================================== */
+            margin-bottom: 15px;
 
-        .coming-soon {
+            break-inside: avoid;
 
-            margin-top:
-                55px;
+            overflow: hidden;
 
-            text-align:
-                center;
+            border: 1px solid var(--border);
+            border-radius: 13px;
 
-            padding:
-                50px 25px;
+            background: var(--card);
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #15131a,
-                    #0f1014
-                );
-
-            border:
-                1px solid #282530;
-
-            border-radius:
-                15px;
-        }
-
-
-        .coming-soon h2 {
-
-            font-size:
-                30px;
-
-            margin-bottom:
-                12px;
-        }
-
-
-        .coming-soon p {
-
-            max-width:
-                650px;
-
-            margin:
-                auto;
-
-            color:
-                #918c9c;
-
-            line-height:
-                1.7;
-        }
-
-
-        /* =================================================
-           JOIN
-        ================================================== */
-
-        .join-section {
-
-            max-width:
-                1200px;
-
-            margin:
-                auto;
-
-            padding:
-                40px 20px 80px;
-        }
-
-
-        .join-notice {
-
-            margin-bottom:
-                30px;
-
-            padding:
-                20px 22px;
-
-            background:
-                rgba(168, 85, 247, 0.08);
-
-            border:
-                1px solid
-                rgba(168, 85, 247, 0.25);
-
-            border-radius:
-                12px;
-
-            text-align:
-                center;
-
-            color:
-                #aaa5b3;
-
-            line-height:
-                1.6;
-        }
-
-
-        .join-notice strong {
-
-            color:
-                #ffffff;
-        }
-
-
-        .ip-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(270px, 1fr)
-                );
-
-            gap:
-                12px;
-        }
-
-
-        .ip-card {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                15px;
-
-            padding:
-                15px 17px;
-
-            background:
-                #121118;
-
-            border:
-                1px solid #282530;
-
-            border-radius:
-                10px;
+            cursor: pointer;
 
             transition:
-                0.2s ease;
+                transform 0.2s,
+                border-color 0.2s,
+                background 0.2s;
         }
 
+        .image-card:hover {
+            transform: translateY(-3px);
 
-        .ip-card:hover {
-
-            border-color:
-                #a855f7;
-
-            transform:
-                translateY(-2px);
+            border-color: var(--border-hover);
+            background: var(--card-hover);
         }
 
+        .image-container {
+            position: relative;
 
-        .ip-address {
+            overflow: hidden;
 
-            color:
-                #ffffff;
-
-            font-family:
-                Consolas,
-                "Courier New",
-                monospace;
-
-            font-size:
-                14px;
-
-            font-weight:
-                700;
-
-            word-break:
-                break-all;
+            background: #0a0b0f;
         }
 
+        .image-card img {
+            display: block;
 
-        .copy-button {
+            width: 100%;
+            height: auto;
 
-            flex-shrink:
-                0;
+            transition: transform 0.25s;
+        }
 
-            border:
-                none;
+        .image-card:hover img {
+            transform: scale(1.015);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 0;
+
+            background: rgba(0, 0, 0, 0.28);
+
+            transition: opacity 0.2s;
+        }
+
+        .image-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .view-icon {
+            padding: 9px 13px;
+
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+
+            color: white;
+
+            font-size: 12px;
+            font-weight: 750;
+        }
+
+        .image-info {
+            padding: 13px 14px 14px;
+        }
+
+        .image-name {
+            overflow: hidden;
+
+            color: #f2f3f7;
+
+            font-size: 13px;
+            font-weight: 750;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .image-source {
+            margin-top: 5px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+        /* ==================================================
+           NO RESULTS
+        ================================================== */
+
+        .no-results {
+            display: none;
+
+            padding: 70px 25px;
+
+            border: 1px dashed var(--border);
+            border-radius: 15px;
+
+            color: var(--muted);
+
+            text-align: center;
+        }
+
+        .no-results h3 {
+            margin-bottom: 7px;
+
+            color: white;
+        }
+
+        /* ==================================================
+           SUBMIT SECTION
+        ================================================== */
+
+        .submit-section {
+            padding: 95px 25px;
+
+            border-top: 1px solid var(--border);
 
             background:
-                #8b35d9;
+                radial-gradient(
+                    circle at center,
+                    rgba(88, 101, 242, 0.13),
+                    transparent 45%
+                );
 
-            color:
-                white;
-
-            padding:
-                8px 14px;
-
-            border-radius:
-                7px;
-
-            font-weight:
-                800;
-
-            cursor:
-                pointer;
-
-            transition:
-                0.2s ease;
+            text-align: center;
         }
 
-
-        .copy-button:hover {
-
-            background:
-                #a855f7;
+        .submit-container {
+            max-width: 780px;
+            margin: auto;
         }
 
+        .submit-container h2 {
+            margin-bottom: 15px;
 
-        .copy-button.copied {
-
-            background:
-                #35a853;
+            font-size: clamp(34px, 6vw, 50px);
+            letter-spacing: -2px;
         }
 
+        .submit-container p {
+            color: var(--muted);
 
-        /* =================================================
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        .discord-user {
+            display: inline-block;
+
+            margin: 23px 0;
+
+            padding: 12px 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 9px;
+
+            background: #141720;
+
+            font-family: monospace;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        /* ==================================================
            FOOTER
         ================================================== */
 
         footer {
+            padding: 35px 25px;
 
-            border-top:
-                1px solid #24212d;
+            border-top: 1px solid var(--border);
 
-            text-align:
-                center;
+            color: var(--muted);
 
-            padding:
-                30px 20px;
+            font-size: 12px;
+            line-height: 1.7;
 
-            color:
-                #6f6a77;
-
-            font-size:
-                14px;
+            text-align: center;
         }
 
-
-        .footer-brand {
-
-            color:
-                #a855f7;
-
-            font-weight:
-                800;
+        footer a {
+            color: #b8beff;
         }
 
+        footer a:hover {
+            text-decoration: underline;
+        }
 
-        /* =================================================
-           MOBILE
+        /* ==================================================
+           FULLSCREEN VIEWER
         ================================================== */
 
-        @media (max-width: 700px) {
+        .viewer {
+            position: fixed;
+            inset: 0;
 
-            header {
+            z-index: 1000;
 
-                padding:
-                    12px 18px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 35px;
+
+            background: rgba(0, 0, 0, 0.94);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .viewer.active {
+            display: flex;
+        }
+
+        .viewer-content {
+            max-width: 95vw;
+            max-height: 94vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .viewer img {
+            display: block;
+
+            max-width: 92vw;
+            max-height: 82vh;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 25px 100px rgba(0, 0, 0, 0.8);
+        }
+
+        .viewer-title {
+            margin-top: 15px;
+
+            color: white;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            text-align: center;
+        }
+
+        .viewer-close {
+            position: absolute;
+
+            top: 20px;
+            right: 25px;
+
+            width: 46px;
+            height: 46px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .viewer-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (max-width: 850px) {
+
+            .stats {
+                grid-template-columns: 1fr;
             }
 
-
-            .brand img {
-
-                width:
-                    42px;
-
-                height:
-                    42px;
+            .gallery-header {
+                align-items: stretch;
+                flex-direction: column;
             }
 
-
-            .brand-name {
-
-                font-size:
-                    18px;
+            .gallery-tools {
+                width: 100%;
             }
 
-
-            nav {
-
-                display:
-                    none;
-            }
-
-
-            .hero {
-
-                padding:
-                    65px 20px 60px;
-            }
-
-
-            .hero-logo {
-
-                width:
-                    140px;
-
-                height:
-                    140px;
-            }
-
-
-            .hero h1 {
-
-                font-size:
-                    42px;
-            }
-
-
-            .hero p {
-
-                font-size:
-                    16px;
-            }
-
-
-            .section {
-
-                padding:
-                    45px 18px;
-            }
-
-
-            .recent-section {
-
-                padding:
-                    35px 18px 10px;
-            }
-
-
-            .kits-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .kit-controls {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .join-section {
-
-                padding:
-                    30px 18px 60px;
-            }
-
-
-            .ip-grid {
-
-                grid-template-columns:
-                    1fr;
+            .search {
+                width: 100%;
             }
 
         }
 
+        @media (max-width: 600px) {
+
+            .hide-mobile {
+                display: none;
+            }
+
+            .nav {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .gallery-section {
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+
+            .gallery {
+                columns: 2 140px;
+                column-gap: 10px;
+            }
+
+            .image-card {
+                margin-bottom: 10px;
+            }
+
+            .image-info {
+                padding: 10px;
+            }
+
+            .gallery-tools {
+                flex-direction: column;
+            }
+
+            .image-counter {
+                width: 100%;
+                text-align: center;
+            }
+
+        }
     </style>
-
 </head>
-
 
 <body>
 
+<!-- ==================================================
+     NAVIGATION
+================================================== -->
 
-    <!-- =====================================================
-         MAINTENANCE BANNER
-    ====================================================== -->
+<header>
 
-    <div id="maintenanceBanner">
+    <div class="nav">
 
-        ⚠️ 6b6t Vault is currently undergoing maintenance.
+        <a href="#" class="logo">
 
-        <span>
-            Some kits or services may temporarily be unavailable.
+            <div class="logo-icon">
+                Q
+            </div>
+
+            <span>Qbasty Syndrome</span>
+
+        </a>
+
+        <div class="nav-links">
+
+            <a
+                href="#gallery"
+                class="nav-button hide-mobile"
+            >
+                Gallery
+            </a>
+
+            <a
+                href="#submit"
+                class="nav-button hide-mobile"
+            >
+                Submit
+            </a>
+
+            <a
+                href="https://discord.gg/murphh"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-button discord-button"
+            >
+                Legion
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero">
+
+    <div class="hero-badge">
+        QBasty IMAGE ARCHIVE
+    </div>
+
+    <h1>
+        <span class="gradient-text">
+            Qbasty
+        </span>
+        <br>
+        Syndrome
+    </h1>
+
+    <p class="hero-description">
+
+        An ever-growing collection of Qbasty images from around
+        the 6b6t community.
+
+        There are so many Qbasty images that they needed
+        their own archive.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a
+            href="#gallery"
+            class="button button-primary"
+        >
+            View the Archive
+        </a>
+
+        <a
+            href="https://discord.gg/murphh"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-secondary"
+        >
+            Join Legion
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     STATS
+================================================== -->
+
+<section class="stats">
+
+    <div class="stat">
+
+        <span
+            class="stat-number"
+            id="totalImages"
+        >
+            0
+        </span>
+
+        <span class="stat-label">
+            Qbasty Images
         </span>
 
     </div>
 
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+    <div class="stat">
 
-    <header>
+        <span class="stat-number">
+            Legion
+        </span>
+
+        <span class="stat-label">
+            Main Source
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <span class="stat-number">
+            ∞
+        </span>
+
+        <span class="stat-label">
+            More To Come
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     LEGION CREDIT
+================================================== -->
+
+<section class="info-section">
+
+    <div class="info-card">
+
+        <h2>
+            Where did these images come from?
+        </h2>
+
+        <p>
+
+            A lot of the Qbasty images in this archive were found
+            through the Legion Discord and the 6b6t community.
+
+            Credit goes to the people who created, collected,
+            and posted the images.
+
+        </p>
 
         <a
-            href="#"
-            class="brand"
+            href="https://discord.gg/murphh"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-primary"
         >
-
-            <img
-                src="6B6T%20Vault%20logo.png"
-                alt="6b6t Vault Logo"
-            >
-
-            <div class="brand-name">
-
-                <span>6b6t</span> Vault
-
-            </div>
-
+            Join the Legion Discord
         </a>
 
+    </div>
 
-        <nav>
-
-            <a href="#">
-                Home
-            </a>
-
-            <a href="#kits">
-                Kits
-            </a>
-
-            <a href="#illegal-kits">
-                Illegal Kits
-            </a>
-
-            <a href="#join">
-                Join
-            </a>
-
-        </nav>
-
-    </header>
+</section>
 
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
+<!-- ==================================================
+     GALLERY
+================================================== -->
 
-    <section class="hero">
+<section
+    class="gallery-section"
+    id="gallery"
+>
 
-        <div class="hero-content">
+    <div class="gallery-header">
 
-            <img
-                class="hero-logo"
-                src="6B6T%20Vault%20logo.png"
-                alt="6b6t Vault Logo"
-            >
-
-
-            <h1>
-
-                6b6t
-                <span>Vault</span>
-
-            </h1>
-
-
-            <p>
-
-                Your source for 6b6t kits.
-                Browse our collection, check stock,
-                and find the supplies you need.
-
-            </p>
-
-
-            <a
-                class="hero-button"
-                href="#kits"
-            >
-                Browse Kits
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         RECENTLY ADDED
-    ====================================================== -->
-
-    <section class="recent-section">
-
-        <div class="section-title">
+        <div class="gallery-title">
 
             <h2>
-                Recently Added
+                The Archive
             </h2>
 
             <p>
-                Check out the latest kits added to the Vault.
+                Click any image to view the full version.
             </p>
 
         </div>
 
 
-        <div
-            class="recent-grid"
-            id="recentGrid"
-        >
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         NORMAL KITS
-    ====================================================== -->
-
-    <section
-        class="section"
-        id="kits"
-    >
-
-        <div class="section-title">
-
-            <h2>
-                Available Kits
-            </h2>
-
-            <p>
-                Search, sort, and favorite your favorite 6b6t Vault kits.
-            </p>
-
-        </div>
-
-
-        <!-- =================================================
-             SEARCH + SORT
-        ================================================== -->
-
-        <div class="kit-controls">
+        <div class="gallery-tools">
 
             <input
                 type="text"
-                id="kitSearch"
-                class="search-box"
-                placeholder="Search kits..."
+                id="searchInput"
+                class="search"
+                placeholder="Search Qbasty..."
                 autocomplete="off"
             >
 
+            <div class="image-counter">
 
-            <select
-                id="sortKits"
-                class="sort-select"
-            >
+                <strong id="visibleCount">
+                    0
+                </strong>
 
-                <option value="default">
-                    Sort: Default
-                </option>
+                images
 
-                <option value="az">
-                    Sort: A-Z
-                </option>
-
-                <option value="za">
-                    Sort: Z-A
-                </option>
-
-                <option value="stock-high">
-                    Stock: Highest
-                </option>
-
-                <option value="stock-low">
-                    Stock: Lowest
-                </option>
-
-                <option value="favorites">
-                    Favorites First
-                </option>
-
-            </select>
+            </div>
 
         </div>
 
+    </div>
 
-        <div
-            class="search-results"
-            id="searchResults"
-        >
-            Showing all kits
-        </div>
 
+    <div
+        class="gallery"
+        id="imageGallery"
+    ></div>
 
-        <!-- =================================================
-             KIT GRID
-        ================================================== -->
 
-        <div
-            class="kits-grid"
-            id="kitsGrid"
-        >
-
-
-            <!-- =========================
-                 KIT
-            ========================== -->
-
-            <div
-                class="kit"
-                data-kit="Bee Nest Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Bee Nest Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Bee Nest Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Block of Gold Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Block of Gold Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Block of Gold Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Stash Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Stash Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Stash Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Redstone Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Redstone Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Redstone Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Grass Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Grass Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Grass Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Cherry Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Cherry Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Cherry Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Stripped Oak Log Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Stripped Oak Log Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Stripped Oak Log Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Nether Bricks Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Nether Bricks Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Nether Bricks Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Warped Wart Block Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Warped Wart Block Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Warped Wart Block Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Ice Age Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Ice Age Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Ice Age Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Pale Oak Log Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Pale Oak Log Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Pale Oak Log Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Underwater Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Underwater Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Underwater Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Mob Heads Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Mob Heads Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Mob Heads Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="EChest Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite EChest Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    EChest Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Player Head Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Player Head Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Player Head Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Stained Glass Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Stained Glass Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Stained Glass Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Grief Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Grief Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Grief Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Beacon Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Beacon Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Beacon Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Stone Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Stone Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Stone Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Shulker Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Shulker Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Shulker Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Totem Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Totem Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Totem Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Black Concrete Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Black Concrete Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Black Concrete Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Mangrove Swamp Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Mangrove Swamp Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Mangrove Swamp Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Bundles Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Bundles Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Bundles Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="XP Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite XP Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    XP Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
-                 NEW KITS
-            ================================================== -->
-
-            <div
-                class="kit"
-                data-kit="PVP Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite PVP Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    PVP Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Bookshelves Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Bookshelves Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Bookshelves Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kit"
-                data-kit="Block of Netherite Kit"
-                data-stock="100"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Block of Netherite Kit"
-                >
-                    ☆
-                </button>
-
-                <h3>
-                    Block of Netherite Kit
-                </h3>
-
-                <div class="stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text"></span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="noResults">
-
-            No kits found matching your search.
-
-        </div>
-
-
-        <!-- =================================================
-             MORE KITS
-        ================================================== -->
-
-        <div class="coming-soon">
-
-            <h2>
-                More Kits Coming Soon
-            </h2>
-
-            <p>
-
-                The 6b6t Vault is always expanding.
-                More kits will be added in future updates,
-                so check back regularly for new additions.
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         ILLEGAL KITS
-    ====================================================== -->
-
-    <section
-        class="section"
-        id="illegal-kits"
+    <div
+        class="no-results"
+        id="noResults"
     >
 
-        <div class="section-title">
+        <h3>
+            No Qbasty found
+        </h3>
 
-            <h2>
-                Illegal Kits
-            </h2>
+        <p>
+            Try searching for something else.
+        </p>
 
-            <p>
-                Kits containing items that are not normally
-                obtainable through standard survival gameplay.
-            </p>
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     SUBMIT
+================================================== -->
+
+<section
+    class="submit-section"
+    id="submit"
+>
+
+    <div class="submit-container">
+
+        <h2>
+            This isn't all of them.
+        </h2>
+
+        <p>
+
+            I know there are more Qbasty images out there.
+
+            If you have a Qbasty image that isn't already
+            in the archive, send it to me in the 6b6t Discord.
+
+        </p>
+
+        <div class="discord-user">
+            @_xno_.
+        </div>
+
+        <p>
+            Send your Qbasty image and it may be added
+            to the archive.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="https://discord.gg/2YxPcsH9C3"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-primary"
+            >
+                Join the 6b6t Discord
+            </a>
 
         </div>
 
+    </div>
 
-        <div
-            class="kits-grid"
-            id="illegalKitsGrid"
+</section>
+
+</main>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <p>
+
+        Qbasty Syndrome — a community image archive.
+
+        <br>
+
+        Many images were found through
+
+        <a
+            href="https://discord.gg/murphh"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Legion
+        </a>.
+
+        This archive is not affiliated with 6b6t.
+
+    </p>
+
+</footer>
+
+
+<!-- ==================================================
+     IMAGE VIEWER
+================================================== -->
+
+<div
+    class="viewer"
+    id="viewer"
+>
+
+    <button
+        class="viewer-close"
+        id="viewerClose"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+    <div class="viewer-content">
+
+        <img
+            id="viewerImage"
+            src=""
+            alt="Qbasty"
         >
 
+        <div
+            class="viewer-title"
+            id="viewerTitle"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==========================================================
+   QBasty IMAGE DATABASE
+
+   TO ADD ANOTHER IMAGE:
+
+   1. Upload it to /images/
+   2. Add ONE line here:
+
+   { file: "New Qbasty.png", source: "Legion" },
+
+========================================================== */
+
+const images = [
+
+    { file: "6b6t Better Qbasty.png", source: "Legion" },
+    { file: "Ayo Qbasty.png", source: "Legion" },
+    { file: "Baby Powder Qbasty.png", source: "Legion" },
+    { file: "Bee Qbasty.png", source: "Legion" },
+    { file: "Big Boy Qbasty.png", source: "Legion" },
+    { file: "Big Girl Qbasty.png", source: "Legion" },
+    { file: "Bye Qbasty.png", source: "Legion" },
+
+    { file: "Cat Girl Qbasty.png", source: "Legion" },
+    { file: "Cheese Qbasty.png", source: "Legion" },
+    { file: "Cheeseburger Qbasty.png", source: "Legion" },
+    { file: "Cigar Qbasty.png", source: "Legion" },
+    { file: "Corn Qbasty.png", source: "Legion" },
+    { file: "Dead Chat Qbasty.png", source: "Legion" },
+    { file: "Diddy Qbasty.png", source: "Legion" },
+
+    { file: "Die Qbasty.png", source: "Legion" },
+    { file: "Diee Cigar Qbasty.png", source: "Legion" },
+    { file: "Discord Qbasty.png", source: "Legion" },
+    { file: "Dying Qbasty.png", source: "Legion" },
+    { file: "Eat Mojang Qbasty.png", source: "Legion" },
+    { file: "Emo Qbasty.jpg", source: "Legion" },
+    { file: "Endermen Qbasty.png", source: "Legion" },
+    { file: "Fat Qbasty.gif", source: "Legion" },
+    { file: "Feet Fat Qbasty.png", source: "Legion" },
+    { file: "Feet Qbasty.png", source: "Legion" },
+    { file: "Fish Qbasty.png", source: "Legion" },
+    { file: "Food Qbasty.png", source: "Legion" },
+    { file: "God Qbasty.png", source: "Legion" },
+    { file: "Gremlin Qbasty.png", source: "Legion" },
 
-            <!-- ILLEGAL BEDROCK -->
+    { file: "Hotdog Qbasty.png", source: "Legion" },
+    { file: "Jail Qbasty.png", source: "Legion" },
+    { file: "Jew Qbasty.png", source: "Legion" },
+    { file: "Kill Qbasty.png", source: "Legion" },
+    { file: "Kiss Qbasty.png", source: "Legion" },
+    { file: "Leader Qbasty.png", source: "Legion" },
+    { file: "Maid Qbasty.png", source: "Legion" },
+    { file: "Meat Qbasty.png", source: "Legion" },
+    { file: "Mojang Qbasty.png", source: "Legion" },
+    { file: "My Precious Qbasty.png", source: "Legion" },
+    { file: "No Vape Qbasty.png", source: "Legion" },
+    { file: "Overlord Qbasty.png", source: "Legion" },
+    { file: "Pink Cat Girl Qbasty.png", source: "Legion" },
+    { file: "Pizza Girl Qbasty.png", source: "Legion" },
 
-            <div
-                class="kit illegal-kit"
-                data-kit="Illegal Bedrock Kit"
-                data-stock="0"
-                data-illegal="true"
-            >
+    { file: "Pizza Qbasty.png", source: "Legion" },
+    { file: "Qbasty Qbasty.png", source: "Legion" },
+    { file: "Red Or Blue Qbasty.png", source: "Legion" },
+    { file: "Rich Cat Qbasty.png", source: "Legion" },
+    { file: "Rich Qbasty.png", source: "Legion" },
+    { file: "Ring Qbasty.png", source: "Legion" },
+    { file: "Sad Ayo Qbasty.png", source: "Legion" },
+    { file: "Scary Qbasty.png", source: "Legion" },
+    { file: "Shrek Qbasty.png", source: "Legion" },
+    { file: "Skinny Qbasty.png", source: "Legion" },
+    { file: "Start Qbasty.png", source: "Legion" },
+    { file: "Sun Qbasty.png", source: "Legion" },
+    { file: "Thanks Qbasty.png", source: "Legion" },
+    { file: "Wheelchair Qbasty.png", source: "Legion" },
+    { file: "Xymb Work Qbasty.png", source: "Legion" },
+    { file: "Yogurt Qbasty.png", source: "Legion" }
 
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Illegal Bedrock Kit"
-                >
-                    ☆
-                </button>
+];
 
 
-                <div>
+/* ==========================================================
+   ELEMENTS
+========================================================== */
 
-                    <div class="illegal-badge">
-                        ILLEGAL
-                    </div>
+const gallery =
+    document.getElementById("imageGallery");
 
-                    <h3>
-                        Illegal Bedrock Kit
-                    </h3>
+const searchInput =
+    document.getElementById("searchInput");
 
-                </div>
+const visibleCount =
+    document.getElementById("visibleCount");
 
+const totalImages =
+    document.getElementById("totalImages");
 
-                <div class="stock illegal-stock">
+const noResults =
+    document.getElementById("noResults");
 
-                    <span class="dot"></span>
+const viewer =
+    document.getElementById("viewer");
 
-                    <span class="stock-text">
-                        Stock Not Counted
-                    </span>
+const viewerImage =
+    document.getElementById("viewerImage");
 
-                </div>
+const viewerTitle =
+    document.getElementById("viewerTitle");
 
-            </div>
+const viewerClose =
+    document.getElementById("viewerClose");
 
 
-            <!-- ILLEGAL REPEATING COMMAND BLOCK -->
+/* ==========================================================
+   CLEAN IMAGE NAME
 
-            <div
-                class="kit illegal-kit"
-                data-kit="Illegal Repeating Command Block Kit"
-                data-stock="0"
-                data-illegal="true"
-            >
+   Turns:
+   "Rich Cat Qbasty.png"
 
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Illegal Repeating Command Block Kit"
-                >
-                    ☆
-                </button>
+   Into:
+   "Rich Cat Qbasty"
+========================================================== */
 
+function getImageName(filename) {
 
-                <div>
+    return filename.replace(
+        /\.(png|jpg|jpeg|gif|webp)$/i,
+        ""
+    );
 
-                    <div class="illegal-badge">
-                        ILLEGAL
-                    </div>
+}
 
-                    <h3>
-                        Illegal Repeating Command Block Kit
-                    </h3>
 
-                </div>
+/* ==========================================================
+   RENDER GALLERY
+========================================================== */
 
+function renderGallery(search = "") {
 
-                <div class="stock illegal-stock">
+    gallery.innerHTML = "";
 
-                    <span class="dot"></span>
+    const query =
+        search
+            .toLowerCase()
+            .trim();
 
-                    <span class="stock-text">
-                        Stock Not Counted
-                    </span>
 
-                </div>
+    const filteredImages =
+        images.filter(image => {
 
-            </div>
+            const name =
+                getImageName(image.file)
+                    .toLowerCase();
 
-
-            <!-- ILLEGAL ITEMS -->
-
-            <div
-                class="kit illegal-kit"
-                data-kit="Illegal Items Kit"
-                data-stock="0"
-                data-illegal="true"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Illegal Items Kit"
-                >
-                    ☆
-                </button>
-
-
-                <div>
-
-                    <div class="illegal-badge">
-                        ILLEGAL
-                    </div>
-
-                    <h3>
-                        Illegal Items Kit
-                    </h3>
-
-                </div>
-
-
-                <div class="stock illegal-stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text">
-                        Stock Not Counted
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- ILLEGAL END PORTAL FRAME -->
-
-            <div
-                class="kit illegal-kit"
-                data-kit="Illegal End Portal Frame Kit"
-                data-stock="0"
-                data-illegal="true"
-            >
-
-                <button
-                    class="favorite-button"
-                    type="button"
-                    aria-label="Favorite Illegal End Portal Frame Kit"
-                >
-                    ☆
-                </button>
-
-
-                <div>
-
-                    <div class="illegal-badge">
-                        ILLEGAL
-                    </div>
-
-                    <h3>
-                        Illegal End Portal Frame Kit
-                    </h3>
-
-                </div>
-
-
-                <div class="stock illegal-stock">
-
-                    <span class="dot"></span>
-
-                    <span class="stock-text">
-                        Stock Not Counted
-                    </span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         WAYS TO JOIN 6B6T
-    ====================================================== -->
-
-    <section
-        class="join-section"
-        id="join"
-    >
-
-        <div class="section-title">
-
-            <h2>
-                Need Another Way to Join 6b6t?
-            </h2>
-
-            <p>
-                Having trouble connecting?
-                Try one of the addresses below.
-            </p>
-
-        </div>
-
-
-        <div class="join-notice">
-
-            <strong>
-                Can't connect using one address?
-            </strong>
-
-            <br>
-
-            Try another address below.
-            Click <strong>Copy</strong> to copy it
-            to your clipboard.
-
-        </div>
-
-
-        <div class="ip-grid">
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    alt.6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'alt.6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    alt2.6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'alt2.6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    alt3.6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'alt3.6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    alt4.6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'alt4.6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    alt5.6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'alt5.6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    eu.6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'eu.6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    mc.6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'mc.6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    play.6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'play.6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    6b6t.cc
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, '6b6t.cc')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    7b7t.me
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, '7b7t.me')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    8b8t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, '8b8t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    10b10t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, '10b10t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    l2x9.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'l2x9.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    alacity.net
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'alacity.net')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    simpleanarchy.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'simpleanarchy.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    anarchypvp.pw
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, 'anarchypvp.pw')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <div class="ip-card">
-
-                <span class="ip-address">
-                    6b6t.org
-                </span>
-
-                <button
-                    class="copy-button"
-                    onclick="copyIP(this, '6b6t.org')"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer>
-
-        <span class="footer-brand">
-            6b6t Vault
-        </span>
-
-        <br>
-        <br>
-
-        Your source for 6b6t kits.
-
-        <br>
-        <br>
-
-        © 2026 6b6t Vault.
-        All rights reserved.
-
-    </footer>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
-
-    <script>
-
-
-        /* =====================================================
-           6b6t VAULT SETTINGS
-        ====================================================== */
-
-
-        /*
-            false = maintenance banner hidden
-            true  = maintenance banner visible
-        */
-
-        const maintenanceMode = false;
-
-
-        /*
-            Recently Added
-
-            Put the EXACT kit names here.
-        */
-
-        const recentlyAdded = [
-
-            "PVP Kit",
-            "Bookshelves Kit",
-            "Block of Netherite Kit"
-
-        ];
-
-
-        /* =====================================================
-           MAINTENANCE MODE
-        ====================================================== */
-
-        const maintenanceBanner =
-            document.getElementById(
-                "maintenanceBanner"
-            );
-
-
-        if (maintenanceMode === true) {
-
-            maintenanceBanner.style.display =
-                "block";
-
-        }
-
-
-        /* =====================================================
-           KIT ELEMENTS
-        ====================================================== */
-
-        const kitsGrid =
-            document.getElementById(
-                "kitsGrid"
-            );
-
-
-        const allKits =
-            Array.from(
-                kitsGrid.querySelectorAll(
-                    ".kit"
-                )
-            );
-
-
-        /* =====================================================
-           STOCK SYSTEM
-        ====================================================== */
-
-        allKits.forEach(kit => {
-
-            const amount =
-                Number(
-                    kit.dataset.stock
-                );
-
-
-            const stock =
-                kit.querySelector(
-                    ".stock"
-                );
-
-
-            const text =
-                stock.querySelector(
-                    ".stock-text"
-                );
-
-
-            if (amount >= 50) {
-
-                stock.classList.add(
-                    "full"
-                );
-
-                text.textContent =
-                    "In Stock — " + amount;
-
-            }
-
-            else if (amount > 0) {
-
-                stock.classList.add(
-                    "low"
-                );
-
-                text.textContent =
-                    "Low Stock — " + amount;
-
-            }
-
-            else {
-
-                stock.classList.add(
-                    "out"
-                );
-
-                text.textContent =
-                    "Out of Stock";
-
-            }
+            return name.includes(query);
 
         });
 
 
-        /* =====================================================
-           FAVORITES
-        ====================================================== */
+    visibleCount.textContent =
+        filteredImages.length;
 
-        let favorites =
-            JSON.parse(
-                localStorage.getItem(
-                    "6b6tVaultFavorites"
-                )
-            ) || [];
+    totalImages.textContent =
+        images.length;
 
 
-        function updateFavoriteButtons() {
+    if (filteredImages.length === 0) {
 
-            document
-                .querySelectorAll(
-                    ".favorite-button"
-                )
-                .forEach(button => {
+        gallery.style.display = "none";
 
-                    const kit =
-                        button.closest(
-                            ".kit"
-                        );
+        noResults.style.display = "block";
+
+        return;
+
+    }
 
 
-                    if (!kit) {
-                        return;
-                    }
+    gallery.style.display = "";
+
+    noResults.style.display = "none";
 
 
-                    const name =
-                        kit.dataset.kit;
+    filteredImages.forEach(image => {
+
+        const name =
+            getImageName(image.file);
 
 
-                    if (
-                        favorites.includes(
-                            name
-                        )
-                    ) {
+        /* CARD */
 
-                        button.classList.add(
-                            "active"
-                        );
+        const card =
+            document.createElement("div");
 
-                        button.textContent =
-                            "★";
-
-                    }
-
-                    else {
-
-                        button.classList.remove(
-                            "active"
-                        );
-
-                        button.textContent =
-                            "☆";
-
-                    }
-
-                });
-
-        }
+        card.className = "image-card";
 
 
-        document
-            .querySelectorAll(
-                ".favorite-button"
-            )
-            .forEach(button => {
+        /* IMAGE CONTAINER */
 
-                button.addEventListener(
-                    "click",
-                    function () {
+        const imageContainer =
+            document.createElement("div");
 
-                        const kit =
-                            this.closest(
-                                ".kit"
-                            );
+        imageContainer.className =
+            "image-container";
 
 
-                        const name =
-                            kit.dataset.kit;
+        /* IMAGE */
+
+        const img =
+            document.createElement("img");
+
+        img.src =
+            "images/" +
+            encodeURIComponent(image.file)
+                .replace(/%2F/g, "/");
+
+        img.alt = name;
+
+        img.loading = "lazy";
+
+        img.decoding = "async";
 
 
-                        if (
-                            favorites.includes(
-                                name
-                            )
-                        ) {
+        /* IF IMAGE FAILS */
 
-                            favorites =
-                                favorites.filter(
-                                    item =>
-                                        item !== name
-                                );
+        img.onerror = function() {
 
-                        }
-
-                        else {
-
-                            favorites.push(
-                                name
-                            );
-
-                        }
-
-
-                        localStorage.setItem(
-                            "6b6tVaultFavorites",
-                            JSON.stringify(
-                                favorites
-                            )
-                        );
-
-
-                        updateFavoriteButtons();
-
-
-                        applyFiltersAndSort();
-
-                    }
-                );
-
-            });
-
-
-        updateFavoriteButtons();
-
-
-        /* =====================================================
-           RECENTLY ADDED GENERATOR
-        ====================================================== */
-
-        const recentGrid =
-            document.getElementById(
-                "recentGrid"
+            console.error(
+                "Failed to load:",
+                image.file
             );
 
+            card.style.display = "none";
 
-        recentlyAdded.forEach(
-            recentKitName => {
-
-                let foundKit =
-                    null;
+        };
 
 
-                allKits.forEach(
-                    kit => {
+        /* OVERLAY */
 
-                        const kitName =
-                            kit.dataset.kit;
+        const overlay =
+            document.createElement("div");
 
-
-                        if (
-                            kitName.toLowerCase()
-                            ===
-                            recentKitName.toLowerCase()
-                        ) {
-
-                            foundKit =
-                                kit;
-
-                        }
-
-                    }
-                );
+        overlay.className =
+            "image-overlay";
 
 
-                if (!foundKit) {
-                    return;
-                }
+        const viewIcon =
+            document.createElement("div");
+
+        viewIcon.className =
+            "view-icon";
+
+        viewIcon.textContent =
+            "View Full Image";
 
 
-                const card =
-                    document.createElement(
-                        "div"
-                    );
+        overlay.appendChild(viewIcon);
 
 
-                card.className =
-                    "recent-card";
+        /* INFO */
+
+        const info =
+            document.createElement("div");
+
+        info.className =
+            "image-info";
 
 
-                card.innerHTML = `
+        const title =
+            document.createElement("div");
 
-                    <div class="recent-badge">
-                        New
-                    </div>
+        title.className =
+            "image-name";
 
-                    <h3>
-                        ${foundKit.dataset.kit}
-                    </h3>
-
-                `;
+        title.textContent =
+            name;
 
 
-                recentGrid.appendChild(
-                    card
+        const source =
+            document.createElement("div");
+
+        source.className =
+            "image-source";
+
+        source.textContent =
+            "Source: " +
+            (image.source || "Unknown");
+
+
+        /* BUILD CARD */
+
+        imageContainer.appendChild(img);
+
+        imageContainer.appendChild(overlay);
+
+        info.appendChild(title);
+
+        info.appendChild(source);
+
+        card.appendChild(imageContainer);
+
+        card.appendChild(info);
+
+
+        /* CLICK IMAGE */
+
+        card.addEventListener(
+            "click",
+            function() {
+
+                openViewer(
+                    img.src,
+                    name
                 );
 
             }
         );
 
 
-        /* =====================================================
-           SEARCH
-        ====================================================== */
+        gallery.appendChild(card);
 
-        const searchBox =
-            document.getElementById(
-                "kitSearch"
-            );
+    });
 
+}
 
-        const searchResults =
-            document.getElementById(
-                "searchResults"
-            );
 
+/* ==========================================================
+   SEARCH
+========================================================== */
 
-        const noResults =
-            document.getElementById(
-                "noResults"
-            );
+searchInput.addEventListener(
+    "input",
+    function() {
 
-
-        const sortKits =
-            document.getElementById(
-                "sortKits"
-            );
-
-
-        /* =====================================================
-           SORT FUNCTION
-        ====================================================== */
-
-        function sortKitsArray(
-            kits,
-            sortType
-        ) {
-
-            const sorted =
-                [...kits];
-
-
-            if (
-                sortType === "az"
-            ) {
-
-                sorted.sort(
-                    (a, b) =>
-                        a.dataset.kit
-                            .localeCompare(
-                                b.dataset.kit
-                            )
-                );
-
-            }
-
-
-            else if (
-                sortType === "za"
-            ) {
-
-                sorted.sort(
-                    (a, b) =>
-                        b.dataset.kit
-                            .localeCompare(
-                                a.dataset.kit
-                            )
-                );
-
-            }
-
-
-            else if (
-                sortType === "stock-high"
-            ) {
-
-                sorted.sort(
-                    (a, b) =>
-                        Number(
-                            b.dataset.stock
-                        )
-                        -
-                        Number(
-                            a.dataset.stock
-                        )
-                );
-
-            }
-
-
-            else if (
-                sortType === "stock-low"
-            ) {
-
-                sorted.sort(
-                    (a, b) =>
-                        Number(
-                            a.dataset.stock
-                        )
-                        -
-                        Number(
-                            b.dataset.stock
-                        )
-                );
-
-            }
-
-
-            else if (
-                sortType === "favorites"
-            ) {
-
-                sorted.sort(
-                    (a, b) => {
-
-                        const aFavorite =
-                            favorites.includes(
-                                a.dataset.kit
-                            );
-
-
-                        const bFavorite =
-                            favorites.includes(
-                                b.dataset.kit
-                            );
-
-
-                        if (
-                            aFavorite
-                            &&
-                            !bFavorite
-                        ) {
-                            return -1;
-                        }
-
-
-                        if (
-                            !aFavorite
-                            &&
-                            bFavorite
-                        ) {
-                            return 1;
-                        }
-
-
-                        return a.dataset.kit
-                            .localeCompare(
-                                b.dataset.kit
-                            );
-
-                    }
-                );
-
-            }
-
-
-            return sorted;
-
-        }
-
-
-        /* =====================================================
-           SEARCH + SORT
-        ====================================================== */
-
-        function applyFiltersAndSort() {
-
-            const search =
-                searchBox.value
-                    .toLowerCase()
-                    .trim();
-
-
-            const sortType =
-                sortKits.value;
-
-
-            const sortedKits =
-                sortKitsArray(
-                    allKits,
-                    sortType
-                );
-
-
-            sortedKits.forEach(
-                kit => {
-
-                    kitsGrid.appendChild(
-                        kit
-                    );
-
-                }
-            );
-
-
-            let visibleCount =
-                0;
-
-
-            allKits.forEach(
-                kit => {
-
-                    const name =
-                        kit.dataset.kit
-                            .toLowerCase();
-
-
-                    const matches =
-                        name.includes(
-                            search
-                        );
-
-
-                    if (matches) {
-
-                        kit.classList.remove(
-                            "hidden"
-                        );
-
-                        visibleCount++;
-
-                    }
-
-                    else {
-
-                        kit.classList.add(
-                            "hidden"
-                        );
-
-                    }
-
-                }
-            );
-
-
-            if (search === "") {
-
-                searchResults.textContent =
-                    "Showing all "
-                    +
-                    allKits.length
-                    +
-                    " kits";
-
-            }
-
-            else {
-
-                searchResults.textContent =
-                    "Found "
-                    +
-                    visibleCount
-                    +
-                    " kit"
-                    +
-                    (
-                        visibleCount === 1
-                        ? ""
-                        : "s"
-                    );
-
-            }
-
-
-            if (
-                visibleCount === 0
-                &&
-                search !== ""
-            ) {
-
-                noResults.style.display =
-                    "block";
-
-            }
-
-            else {
-
-                noResults.style.display =
-                    "none";
-
-            }
-
-        }
-
-
-        searchBox.addEventListener(
-            "input",
-            applyFiltersAndSort
+        renderGallery(
+            searchInput.value
         );
 
-
-        sortKits.addEventListener(
-            "change",
-            applyFiltersAndSort
-        );
+    }
+);
 
 
-        /* =====================================================
-           INITIAL SEARCH
-        ====================================================== */
+/* ==========================================================
+   FULLSCREEN VIEWER
+========================================================== */
 
-        applyFiltersAndSort();
+function openViewer(src, name) {
 
+    viewerImage.src =
+        src;
 
-        /* =====================================================
-           COPY SERVER IP
-        ====================================================== */
+    viewerTitle.textContent =
+        name;
 
-        function copyIP(
-            button,
-            ip
-        ) {
+    viewer.classList.add(
+        "active"
+    );
 
-            navigator.clipboard
-                .writeText(ip)
-                .then(() => {
+    document.body.style.overflow =
+        "hidden";
 
-                    const original =
-                        button.textContent;
+}
 
 
-                    button.textContent =
-                        "Copied!";
+function closeViewer() {
+
+    viewer.classList.remove(
+        "active"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
 
 
-                    button.classList.add(
-                        "copied"
-                    );
+/* CLOSE BUTTON */
+
+viewerClose.addEventListener(
+    "click",
+    closeViewer
+);
 
 
-                    setTimeout(
-                        () => {
+/* CLICK BACKGROUND TO CLOSE */
 
-                            button.textContent =
-                                original;
+viewer.addEventListener(
+    "click",
+    function(event) {
 
-                            button.classList.remove(
-                                "copied"
-                            );
+        if (event.target === viewer) {
 
-                        },
-                        1500
-                    );
-
-                })
-
-
-                .catch(() => {
-
-                    const textarea =
-                        document.createElement(
-                            "textarea"
-                        );
-
-
-                    textarea.value =
-                        ip;
-
-
-                    textarea.style.position =
-                        "fixed";
-
-
-                    textarea.style.opacity =
-                        "0";
-
-
-                    document.body.appendChild(
-                        textarea
-                    );
-
-
-                    textarea.focus();
-
-                    textarea.select();
-
-
-                    try {
-
-                        document.execCommand(
-                            "copy"
-                        );
-
-
-                        button.textContent =
-                            "Copied!";
-
-
-                        button.classList.add(
-                            "copied"
-                        );
-
-
-                        setTimeout(
-                            () => {
-
-                                button.textContent =
-                                    "Copy";
-
-                                button.classList.remove(
-                                    "copied"
-                                );
-
-                            },
-                            1500
-                        );
-
-                    }
-
-                    catch {
-
-                        alert(
-                            "Copy failed.\n\n"
-                            +
-                            ip
-                        );
-
-                    }
-
-
-                    document.body.removeChild(
-                        textarea
-                    );
-
-                });
+            closeViewer();
 
         }
 
-    </script>
+    }
+);
 
+
+/* ESC TO CLOSE */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeViewer();
+
+        }
+
+    }
+);
+
+
+/* ==========================================================
+   INITIAL LOAD
+========================================================== */
+
+renderGallery();
+
+</script>
 
 </body>
-
 </html>
